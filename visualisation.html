@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Просторовий контроль · Системи візуалізації</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .nav-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .nav-button {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      color: var(--ink-light);
+      padding: 0.5rem 1.2rem;
+      border: 1px solid var(--rule);
+      border-radius: 30px;
+      transition: all 0.2s ease;
+      background: transparent;
+    }
+    
+    .nav-button:hover {
+      border-color: var(--grass);
+      color: var(--grass-dark);
+      background: rgba(46, 125, 50, 0.03);
+    }
+    
+    .scheme-container {
+      margin: 2.5rem 0;
+      padding: 1.5rem;
+      background: var(--sky-light);
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+    }
+    
+    .scheme-title {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-light);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    
+    .scheme-canvas {
+      display: block;
+      width: 100%;
+      max-width: 750px;
+      margin: 0 auto;
+    }
+    
+    .scheme-caption {
+      font-size: 0.85rem;
+      color: var(--ink-light);
+      margin-top: 1rem;
+      text-align: center;
+      font-style: italic;
+    }
+    
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .feature-card {
+      background: var(--sky-light);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-bottom: 3px solid var(--grass);
+    }
+    
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .feature-title {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      color: var(--grass-dark);
+    }
+    
+    .feature-desc {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--ink-light);
+    }
+    
+    .stats-panel {
+      background: var(--paper);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      margin: 2rem 0;
+    }
+    
+    .stats-panel h3 {
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      font-style: normal;
+      font-weight: 600;
+    }
+    
+    .formula-inline {
+      background: var(--sky-light);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 700px) {
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article>
+    <!-- Навігація -->
+    <div class="nav-top">
+      <a href="dynamical.html" class="nav-button">← Динамічний контроль</a>
+      <div class="nav-links">
+        <a href="defence.html" class="nav-button">Простір у захисті →</a>
+      </div>
+    </div>
+    
+    <!-- Заголовок -->
+    <h1>Роль спеціалізованих систем візуалізації простору</h1>
+    
+    <!-- Основний текст -->
+    <p>Сучасні аналітичні системи інтегрують поняття невизначеності у свої просторові моделі. Технології динамічного контролю простору здатні оцінювати різноманітні варіанти розвитку подій. Вони розраховують вірогідність успішного проходження кожної потенційної передачі. Для цього аналізується складна статистика переміщень. Алгоритми вираховують відстань по осі ординат між позицією гравця та точкою початку передачі. Вони також фіксують відстань по осі абсцис та ординат між гравцем і точкою прийому м'яча. Аналітики випробовують багато можливих статистичних комбінацій для пошуку ідеальної формули. Для визначення найбільш важливих статистичних даних використовується спеціальна функція важливості ознак.</p>
+    
+    <!-- Схема 1: Аналіз передачі -->
+    <div class="scheme-container">
+      <div class="scheme-title">Рис. 1 — Розрахунок вірогідності успішної передачі</div>
+      <svg class="scheme-canvas" viewBox="0 0 700 250" preserveAspectRatio="xMidYMid meet">
+        <rect x="10" y="15" width="680" height="220" rx="6" fill="#fefefd" stroke="#2e7d32" stroke-width="1" />
+        
+        <text x="350" y="38" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#1a1e24" text-anchor="middle" font-weight="600">Аналіз потенційної передачі</text>
+        
+        <!-- Гравець з м'ячем -->
+        <circle cx="80" cy="120" r="12" fill="#c0392b" />
+        <text x="80" y="115" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="600">P1</text>
+        
+        <!-- Отримувач -->
+        <circle cx="450" cy="80" r="12" fill="#c0392b" opacity="0.7" />
+        <text x="450" y="75" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#c0392b" text-anchor="450" font-weight="600">P2</text>
+        
+        <!-- Лінія передачі -->
+        <line x1="92" y1="120" x2="438" y2="80" stroke="#3a404a" stroke-width="2" stroke-dasharray="8,4" />
+        
+        <!-- Захисники на лінії -->
+        <circle cx="200" cy="105" r="10" fill="#2e7d32" />
+        <text x="200" y="100" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">D1</text>
+        
+        <circle cx="320" cy="95" r="10" fill="#2e7d32" />
+        <text x="320" y="90" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">D2</text>
+        
+        <!-- Зони перехоплення -->
+        <circle cx="200" cy="105" r="25" fill="#2e7d32" opacity="0.06" stroke="#2e7d32" stroke-width="0.8" stroke-dasharray="3,3" />
+        <circle cx="320" cy="95" r="25" fill="#2e7d32" opacity="0.06" stroke="#2e7d32" stroke-width="0.8" stroke-dasharray="3,3" />
+        
+        <!-- Вимірювання -->
+        <!-- Δx -->
+        <line x1="80" y1="145" x2="450" y2="145" stroke="#c0392b" stroke-width="1" />
+        <text x="265" y="160" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#c0392b" text-anchor="middle">Δx (відстань по осі абсцис)</text>
+        
+        <!-- Δy -->
+        <line x1="465" y1="80" x2="465" y2="120" stroke="#2e7d32" stroke-width="1" />
+        <text x="480" y="102" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#2e7d32">Δy</text>
+        
+        <!-- Формула -->
+        <text x="350" y="210" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#3a404a" text-anchor="middle" font-style="italic">P(успіх) = f(Δx, Δy, позиції захисників, швидкість P2, кут передачі)</text>
+      </svg>
+      <div class="scheme-caption">Алгоритми аналізують десятки параметрів для оцінки ймовірності успіху кожної передачі.</div>
+    </div>
+    
+    <!-- Ключові можливості -->
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <div class="feature-title">Двовимірні анімації</div>
+        <div class="feature-desc">Територіальне домінування та управління простором візуалізуються на основі реальних рухів спортсменів. Системи генерують двовимірні анімації, на яких відображається поле та всі дійові особи.</div>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">🔍</div>
+        <div class="feature-title">Фільтри та фокусування</div>
+        <div class="feature-desc">Наявність інноваційних технологій та численних фільтрів на інформаційних панелях надає користувачам величезні переваги. Аналітики можуть сфокусуватися на конкретній події матчу.</div>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">🎬</div>
+        <div class="feature-title">Миттєве відео епізоду</div>
+        <div class="feature-desc">Аналітики можуть створити миттєве відео цього епізоду. Це відео відтворюється поруч із двовимірною анімацією динамічного контролю поля.</div>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <div class="feature-title">Інтерактивна оцінка</div>
+        <div class="feature-desc">Такий інтерактивний аспект дозволяє тренерам об'єктивно оцінювати будь-яку ігрову ситуацію, порівнюючи реальне відео з аналітичною візуалізацією.</div>
+      </div>
+    </div>
+    
+    <!-- Схема 2: Інтерактивна панель -->
+    <div class="scheme-container">
+      <div class="scheme-title">Рис. 2 — Інтерактивна аналітична панель тренера</div>
+      <svg class="scheme-canvas" viewBox="0 0 700 280" preserveAspectRatio="xMidYMid meet">
+        <rect x="10" y="15" width="680" height="250" rx="6" fill="#fefefd" stroke="#2e7d32" stroke-width="1" />
+        
+        <text x="350" y="38" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#1a1e24" text-anchor="middle" font-weight="600">Інтерактивна панель аналітика</text>
+        
+        <!-- Ліва частина: Відео -->
+        <rect x="25" y="50" width="300" height="180" rx="4" fill="#d6eaf8" stroke="#3a404a" stroke-width="1" />
+        <text x="175" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" fill="#3a404a" text-anchor="middle">🎥 ВІДЕО ЕПІЗОДУ</text>
+        <text x="175" y="150" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#3a404a" text-anchor="middle">(реальний запис матчу)</text>
+        
+        <!-- Права частина: Анімація -->
+        <rect x="375" y="50" width="300" height="180" rx="4" fill="#e8f2fa" stroke="#2e7d32" stroke-width="1.5" />
+        <text x="525" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" fill="#2e7d32" text-anchor="middle">📐 2D-АНІМАЦІЯ</text>
+        <text x="525" y="150" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#2e7d32" text-anchor="middle">(динамічний контроль поля)</text>
+        
+        <!-- Стрілка синхронізації -->
+        <line x1="325" y1="140" x2="375" y2="140" stroke="#c0392b" stroke-width="2" marker-end="url(#arrowSync)" />
+        
+        <defs>
+          <marker id="arrowSync" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#c0392b" />
+          </marker>
+        </defs>
+        
+        <!-- Фільтри -->
+        <rect x="25" y="240" width="650" height="20" rx="4" fill="#fefefd" stroke="var(--rule)" stroke-width="0.5" />
+        <text x="350" y="254" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#3a404a" text-anchor="middle">Фільтри: [Команда] [Гравець] [Час] [Фаза гри] [Тип події] [Зона поля]</text>
+      </svg>
+      <div class="scheme-caption">Синхронізація реального відео з аналітичною 2D-анімацією дозволяє тренерам об'єктивно оцінювати будь-яку ігрову ситуацію.</div>
+    </div>
+    
+    <p>Особливий інтерес становить застосування цих інструментів для вивчення перехідних фаз гри. Аналітики досліджують, як саме розташовуються гравці команди суперника під час початку контрнаступу. Розуміння просторових вразливостей опонентів у момент втрати ними м'яча є ключовим для успішної контратаки.</p>
+    
+    <!-- Статистична панель -->
+    <div class="stats-panel">
+      <h3>Статистичні параметри аналізу передач</h3>
+      <p style="margin-bottom: 1rem;">Для визначення найбільш важливих статистичних даних використовується спеціальна функція важливості ознак. Алгоритми аналізують:</p>
+      <ul style="margin-left: 1.5rem; color: var(--ink-light);">
+        <li>Відстань по осі ординат між позицією гравця та точкою початку передачі</li>
+        <li>Відстань по осі абсцис та ординат між гравцем і точкою прийому м'яча</li>
+        <li>Швидкість та напрямок руху отримувача</li>
+        <li>Кількість та позиції захисників на лінії передачі</li>
+        <li>Кут передачі відносно напрямку атаки</li>
+      </ul>
+    </div>
+    
+    <p>Аналітичні відділи регулярно переглядають ці візуалізації разом із тренерським штабом. Отримана інформація використовується для внесення тактичних коректив у гру команди. Деякі фахівці зазначають, що сучасні підходи до розрахунку можуть виглядати менш плавними на графіках через складність постійного перерахунку даних. Також спостерігаються розбіжності між різними науковими підходами до апроксимації цих моделей.</p>
+    
+    <!-- Схема 3: Стоп-кадр на уроці -->
+    <div class="scheme-container">
+      <div class="scheme-title">Рис. 3 — Імітація аналітики на уроці фізичної культури</div>
+      <svg class="scheme-canvas" viewBox="0 0 650 200" preserveAspectRatio="xMidYMid meet">
+        <rect x="10" y="15" width="630" height="170" rx="6" fill="#fefefd" stroke="#2e7d32" stroke-width="1" />
+        
+        <text x="325" y="38" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#1a1e24" text-anchor="middle" font-weight="600">Метод "стоп-кадр" на уроці фізичної культури</text>
+        
+        <!-- Поле -->
+        <rect x="40" y="55" width="280" height="110" fill="#d6eaf8" stroke="#2e7d32" stroke-width="1" />
+        
+        <!-- Гравці -->
+        <circle cx="90" cy="90" r="8" fill="#c0392b" />
+        <circle cx="150" cy="80" r="8" fill="#c0392b" />
+        <circle cx="120" cy="120" r="8" fill="#2e7d32" />
+        <circle cx="200" cy="100" r="8" fill="#2e7d32" />
+        <circle cx="250" cy="120" r="8" fill="#c0392b" />
+        
+        <!-- Вільна зона -->
+        <ellipse cx="280" cy="85" rx="25" ry="15" fill="#2e7d32" opacity="0.1" stroke="#2e7d32" stroke-width="1" stroke-dasharray="4,3" />
+        
+        <!-- Свисток -->
+        <text x="350" y="110" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" fill="#c0392b">📢</text>
+        
+        <!-- Пояснення -->
+        <text x="480" y="90" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#1a1e24">Вчитель зупиняє гру</text>
+        <text x="480" y="108" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#1a1e24">свистком і демонструє:</text>
+        <text x="480" y="128" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#2e7d32">• відкриті зони для передачі</text>
+        <text x="480" y="146" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#c0392b">• позиційні помилки захисту</text>
+        
+        <text x="325" y="180" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#3a404a" text-anchor="middle" font-style="italic">Такий "стоп-кадр" розвиває просторову уяву без складного обладнання</text>
+      </svg>
+      <div class="scheme-caption">На уроках фізичної культури вчитель може імітувати процес аналітики під час навчальних ігор.</div>
+    </div>
+    
+    <p>На уроках фізичної культури вчитель може імітувати процес такої аналітики під час навчальних ігор. Замість використання комп'ютерних програм викладач просить учнів завмерти на своїх позиціях за сигналом свистка. У цей момент вчитель наочно демонструє школярам відкриті зони для передачі та вказує на позиційні помилки захисту. Такий практичний "стоп-кадр" допомагає учням розвивати просторову уяву без застосування складного обладнання.</p>
+    
+    <!-- Номер сторінки -->
+    <div class="page-number">— 9 —</div>
+  </article>
+</body>
+</html>

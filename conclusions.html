@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Просторовий контроль · Підсумки</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .nav-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .nav-button {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      color: var(--ink-light);
+      padding: 0.5rem 1.2rem;
+      border: 1px solid var(--rule);
+      border-radius: 30px;
+      transition: all 0.2s ease;
+      background: transparent;
+    }
+    
+    .nav-button:hover {
+      border-color: var(--grass);
+      color: var(--grass-dark);
+      background: rgba(46, 125, 50, 0.03);
+    }
+    
+    .conclusion-box {
+      background: var(--paper);
+      padding: 2rem;
+      border-radius: 8px;
+      border: 1px solid var(--grass);
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+    
+    .conclusion-box h2 {
+      margin-top: 0;
+      border-left: none;
+      padding-left: 0;
+      text-align: center;
+      color: var(--grass-dark);
+    }
+    
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    
+    .summary-card {
+      background: var(--sky-light);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-bottom: 3px solid var(--grass);
+      text-align: center;
+    }
+    
+    .summary-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .summary-title {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      color: var(--grass-dark);
+    }
+    
+    .summary-desc {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--ink-light);
+    }
+    
+    .final-quote {
+      background: var(--grass);
+      color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      margin: 2.5rem 0;
+    }
+    
+    .final-quote p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.95);
+    }
+    
+    .final-quote p::first-letter {
+      font-size: inherit;
+      float: none;
+      margin: 0;
+      color: inherit;
+    }
+    
+    .works-cited {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+    
+    .works-cited h3 {
+      margin-top: 0;
+      font-style: normal;
+      font-weight: 600;
+      color: var(--grass-dark);
+    }
+    
+    .works-cited ol {
+      margin-left: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--ink-light);
+    }
+    
+    .works-cited li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .site-map {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+      margin: 2rem 0;
+    }
+    
+    .site-map a {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 0.8rem;
+      text-decoration: none;
+      color: var(--ink-light);
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--rule);
+      border-radius: 20px;
+      transition: all 0.2s;
+    }
+    
+    .site-map a:hover {
+      border-color: var(--grass);
+      color: var(--grass-dark);
+      background: rgba(46, 125, 50, 0.03);
+    }
+    
+    @media (max-width: 700px) {
+      .summary-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article>
+    <!-- Навігація -->
+    <div class="nav-top">
+      <a href="technology.html" class="nav-button">← Технології аналізу</a>
+      <div class="nav-links">
+        <a href="quiz.html" class="nav-button">Тест для самоперевірки →</a>
+      </div>
+    </div>
+    
+    <!-- Заголовок -->
+    <h1>Підсумки щодо управління ігровим простором</h1>
+    
+    <!-- Основний текст -->
+    <p>Фундамент будь-якої сучасної спортивної гри на майданчику будується на глибокому розумінні просторової геометрії. Від базових геометричних діаграм до новітніх динамічних систем контролю часу — еволюція аналітичних підходів безперервно розширює межі нашого розуміння тактики. Успіх на спортивному полі завжди розпочинається зі здобуття локальної територіальної переваги над суперником. Здатність команди як єдиного злагодженого механізму ущільнювати простір під час захисту та максимально розширювати його під час власних атак залишається головним показником ігрового інтелекту спортсменів.</p>
+    
+    <!-- Ключові висновки -->
+    <div class="summary-grid">
+      <div class="summary-card">
+        <div class="summary-icon">📐</div>
+        <div class="summary-title">Геометричний фундамент</div>
+        <div class="summary-desc">Від діаграм Діріхле-Вороного до динамічних моделей контролю поля — геометрія простору є основою тактичного аналізу.</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-icon">⚡</div>
+        <div class="summary-title">Динамічна еволюція</div>
+        <div class="summary-desc">Перехід від статичних моделей до врахування швидкості, прискорення та орієнтації гравців зробив аналіз реалістичним.</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-icon">🌍</div>
+        <div class="summary-title">Універсальність принципів</div>
+        <div class="summary-desc">Від футболу до баскетболу, від хокею до регбі — просторові принципи єдині, відрізняються лише правила.</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-icon">🎯</div>
+        <div class="summary-title">Амплуа та простір</div>
+        <div class="summary-desc">Кожна позиція на полі має унікальні просторові завдання — від воротаря до нападника, від захисту до пресингу.</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-icon">💻</div>
+        <div class="summary-title">Технологічна революція</div>
+        <div class="summary-desc">Оптичне відстеження, GPS, UWB та машинне навчання зробили просторовий аналіз доступним і точним.</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-icon">📚</div>
+        <div class="summary-title">Педагогічна адаптація</div>
+        <div class="summary-desc">Складні тактичні концепції успішно адаптуються для шкільних уроків через прості вправи та рухливі ігри.</div>
+      </div>
+    </div>
+    
+    <p>Кожна окрема технічна дія на полі, незалежно від того, чи це точна передача, швидкісний дриблінг чи жорсткий відбір м'яча, є лише фізичним інструментом. Справжня мета цих інструментів полягає у досягненні просторового домінування. Систематичне навчання цим принципам на всіх етапах розвитку гравця формує міцну базу для ефективного спортивного зростання.</p>
+    
+    <!-- Фінальна цитата -->
+    <div class="final-quote">
+      <p>Впровадження елементів просторового аналізу на уроках фізичної культури перетворює звичайну рухливу активність на інтелектуальний процес. Свідоме ставлення до вибору позиції перетворює хаос індивідуальних переміщень на впорядковану командну структуру. Кожен сектор ігрового поля набуває власного тактичного значення, знаходячись під постійним контролем гравців, які розуміють ціну ігрового простору.</p>
+    </div>
+    
+    <!-- Підсумкова таблиця -->
+    <div class="conclusion-box">
+      <h2>Еволюція просторового аналізу</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Етап розвитку</th>
+            <th>Ключові характеристики</th>
+            <th>Внесок у тактику</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Статичні діаграми</td>
+            <td>Поділ простору за відстанню, ігнорування динаміки</td>
+            <td>Базове розуміння зон контролю</td>
+          </tr>
+          <tr>
+            <td>Накладання діаграм</td>
+            <td>Виявлення зон конфлікту, аналіз взаємодії команд</td>
+            <td>Оцінка ефективності захисних побудов</td>
+          </tr>
+          <tr>
+            <td>Динамічний контроль</td>
+            <td>Врахування швидкості, прискорення, орієнтації, позиції м'яча</td>
+            <td>Реалістична оцінка вірогідності подій</td>
+          </tr>
+          <tr>
+            <td>Системи візуалізації</td>
+            <td>2D-анімації, синхронізація з відео, інтерактивні фільтри</td>
+            <td>Об'єктивна оцінка будь-якої ігрової ситуації</td>
+          </tr>
+          <tr>
+            <td>AI та прогнозування</td>
+            <td>Машинне навчання, генеративні моделі, симуляції</td>
+            <td>Прогнозування розвитку атаки, оцінка xG/xT у реальному часі</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <p>Сучасні аналітичні системи продовжують розвиватися, інтегруючи все більше параметрів у свої моделі. Майбутнє просторового аналізу лежить у поєднанні фізичних моделей руху з машинним навчанням для прогнозування найбільш імовірних сценаріїв розвитку атаки. Проте навіть найскладніші алгоритми базуються на фундаментальному принципі: контроль простору є ключем до контролю гри.</p>
+    
+    <!-- Карта сайту -->
+    <h3 style="margin-top: 2.5rem; text-align: center;">Зміст посібника</h3>
+    <div class="site-map">
+      <a href="index.html">Вступ</a>
+      <a href="history.html">Історія методу</a>
+      <a href="voroniy.html">Діаграми Вороного</a>
+      <a href="analysis.html">Аналіз футзалу</a>
+      <a href="unequal.html">Гра в нерівних складах</a>
+      <a href="distribution.html">Баскетбольний напад</a>
+      <a href="restrictions.html">Обмеження моделей</a>
+      <a href="dynamical.html">Динамічний контроль</a>
+      <a href="visualisation.html">Системи візуалізації</a>
+      <a href="defence.html">Простір у захисті</a>
+      <a href="dominance.html">Амплуа та пресинг</a>
+      <a href="adaption.html">Адаптація для уроків</a>
+      <a href="case-studies.html">Кейс-стаді</a>
+      <a href="sports-comparison.html">Порівняння видів спорту</a>
+      <a href="technology.html">Технології аналізу</a>
+      <a href="quiz.html">Тест</a>
+    </div>
+    
+    <!-- Works Cited -->
+    <div class="works-cited">
+      <h3>Works cited</h3>
+      <ol>
+        <li>Spatial dynamics of team sports exposed by Voronoi diagrams, accessed on April 17, 2026, https://pubmed.ncbi.nlm.nih.gov/22770973/</li>
+        <li>Measuring spatial interaction behavior in team sports using superimposed Voronoi diagrams - repositorio@ipl.pt, accessed on April 17, 2026, https://repositorio.ipl.pt/entities/publication/0fb53399-a9fe-4662-b376-a4981a1f4791</li>
+        <li>Using Voronoi diagrams to describe tactical behaviour in invasive ..., accessed on April 17, 2026, https://ucrisportal.univie.ac.at/en/publications/using-voronoi-diagrams-to-describe-tactical-behaviour-in-invasive/</li>
+        <li>Spatial dynamics of team sports exposed by Voronoi diagrams - ResearchGate, accessed on April 17, 2026, https://www.researchgate.net/publication/228440675_Spatial_dynamics_of_team_sports_exposed_by_Voronoi_diagrams</li>
+        <li>Visualizing positioning and player decisions: the innovation of ..., accessed on April 17, 2026, https://www.footovision.com/visualizing-positioning-and-player-decisions-the-innovation-of-dynamic-pitch-control</li>
+        <li>A Neighbor-based Approach to Pitch Ownership Models in Soccer - arXiv, accessed on April 17, 2026, https://arxiv.org/html/2501.05870v1</li>
+        <li>pitch control metrics to improve the predictions of moments leading to goals in football - Homepages of UvA/FNWI staff, accessed on April 17, 2026, https://staff.fnwi.uva.nl/a.viser/education/masterProjects/Thesis_Ramon_Dop_MsDS.pdf</li>
+        <li>A New Metric for Pitch Control based on an Intuitive Motion Model, accessed on April 17, 2026, https://www.sfu.ca/~tswartz/papers/pitch_control.pdf</li>
+        <li>Pitch Control in Football - Utrecht University Student Theses Repository Home, accessed on April 17, 2026, https://studenttheses.uu.nl/bitstream/handle/20.500.12932/47138/Thesis_anoniem.pdf?sequence=1&isAllowed=y</li>
+        <li>Animated Voronoi Diagram Showing Spacial Control of the Field : r/footballtactics - Reddit, accessed on April 17, 2026, https://www.reddit.com/r/footballtactics/comments/stxn1q/animated_voronoi_diagram_showing_spacial_control/</li>
+        <li>Фізична підготовка футболістів високої кваліфікації, accessed on April 17, 2026, https://clffu.org.ua/storage/education-materials/November2024/eVv7TYSMy7Q4osljcRwi.pdf</li>
+        <li>Інтенсивність та ефективність застосування пресингу футболістами команд високого рівня | Спортивні ігри, accessed on April 17, 2026, https://journals.uran.ua/sports_games/article/view/298424</li>
+        <li>Тактичні принципи гри для середніх команд U11-U13 : r/SoccerCoachResources - Reddit, accessed on April 17, 2026, https://www.reddit.com/r/SoccerCoachResources/comments/1ksr8ee/tactical_principles_of_play_for_average_teams/?tl=uk</li>
+      </ol>
+    </div>
+    
+    <!-- Номер сторінки -->
+    <div class="page-number">— 16 —</div>
+  </article>
+</body>
+</html>

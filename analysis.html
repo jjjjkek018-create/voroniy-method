@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Просторовий контроль · Аналіз футзалу</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .nav-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .nav-button {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      color: var(--ink-light);
+      padding: 0.5rem 1.2rem;
+      border: 1px solid var(--rule);
+      border-radius: 30px;
+      transition: all 0.2s ease;
+      background: transparent;
+    }
+    
+    .nav-button:hover {
+      border-color: var(--grass);
+      color: var(--grass-dark);
+      background: rgba(46, 125, 50, 0.03);
+    }
+    
+    .scheme-container {
+      margin: 2.5rem 0;
+      padding: 1.5rem;
+      background: var(--sky-light);
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+    }
+    
+    .scheme-title {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-light);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    
+    .scheme-canvas {
+      display: block;
+      width: 100%;
+      max-width: 750px;
+      margin: 0 auto;
+    }
+    
+    .scheme-caption {
+      font-size: 0.85rem;
+      color: var(--ink-light);
+      margin-top: 1rem;
+      text-align: center;
+      font-style: italic;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .stat-card {
+      background: var(--sky-light);
+      padding: 1.5rem 1rem;
+      border-radius: 8px;
+      text-align: center;
+      border-bottom: 3px solid var(--grass);
+    }
+    
+    .stat-number {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--grass-dark);
+      line-height: 1.2;
+    }
+    
+    .stat-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-light);
+      margin-top: 0.5rem;
+    }
+    
+    .comparison-table {
+      margin: 2rem 0;
+    }
+    
+    .highlight-box {
+      background: var(--sky-light);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--accent);
+      margin: 2rem 0;
+    }
+    
+    @media (max-width: 700px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article>
+    <!-- Навігація -->
+    <div class="nav-top">
+      <a href="voroniy.html" class="nav-button">← Діаграми Вороного</a>
+      <div class="nav-links">
+        <a href="unequal.html" class="nav-button">Гра в нерівних складах →</a>
+      </div>
+    </div>
+    
+    <!-- Заголовок -->
+    <h1>Аналіз просторової поведінки у футзалі</h1>
+    
+    <!-- Основний текст -->
+    <p>Футзал слугує ідеальним середовищем для вивчення просторової динаміки через обмежені розміри майданчика та меншу кількість гравців. Дослідження тактичної поведінки у цьому виді спорту демонструють чіткі просторові відмінності між діями атакуючої та захисної сторін. Науковці провели детальне вивчення дев'ятнадцяти ігрових епізодів підфази футзального матчу. Ці розіграші відбувалися на зменшеній ділянці поля, площа якої становила двадцять квадратних метрів. Дослідники вилучили з відеозаписів точні траєкторії переміщення абсолютно всіх учасників гри.</p>
+    
+    <!-- Статистика дослідження -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">19</div>
+        <div class="stat-label">Ігрових епізодів</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">20 м²</div>
+        <div class="stat-label">Площа ділянки</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Траєкторій гравців</div>
+      </div>
+    </div>
+    
+    <p>Порівняльний аналіз площі домінантного регіону кожного гравця та відстані до найближчого партнера виявив цікаві закономірності. Взаємодія між нападниками суттєво відрізняється від взаємодії між захисниками на індивідуальному та колективному рівнях.</p>
+    
+    <!-- Порівняльна таблиця -->
+    <div class="comparison-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Характеристика простору</th>
+            <th>Гравці атакуючої команди</th>
+            <th>Гравці захисної команди</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Розмір домінантного регіону</td>
+            <td>Зона має значно більшу площу</td>
+            <td>Зона є максимально звуженою</td>
+          </tr>
+          <tr>
+            <td>Форма просторової зони</td>
+            <td>Форма є більш регулярною та правильною</td>
+            <td>Форма є мінливою та неправильною</td>
+          </tr>
+          <tr>
+            <td>Рівень варіабельності</td>
+            <td>Висока мінливість розмірів між партнерами</td>
+            <td>Низька мінливість через компактність</td>
+          </tr>
+          <tr>
+            <td>Головне тактичне завдання</td>
+            <td>Розширення простору для створення зон</td>
+            <td>Звуження простору для блокування пасів</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- Схема 1: Порівняння атаки та захисту -->
+    <div class="scheme-container">
+      <div class="scheme-title">Рис. 1 — Порівняння просторової організації атакуючої та захисної команд</div>
+      <svg class="scheme-canvas" viewBox="0 0 750 320" preserveAspectRatio="xMidYMid meet">
+        <!-- Атакуюча команда (ліворуч) -->
+        <rect x="15" y="20" width="340" height="280" rx="6" fill="#fefefd" stroke="#c0392b" stroke-width="1.5" />
+        <text x="185" y="45" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" fill="#c0392b" text-anchor="middle" font-weight="600">АТАКУЮЧА КОМАНДА</text>
+        
+        <!-- Гравці атаки -->
+        <circle cx="80" cy="110" r="9" fill="#c0392b" />
+        <circle cx="180" cy="90" r="9" fill="#c0392b" />
+        <circle cx="280" cy="110" r="9" fill="#c0392b" />
+        <circle cx="130" cy="170" r="9" fill="#c0392b" />
+        <circle cx="230" cy="170" r="9" fill="#c0392b" />
+        
+        <!-- Великі домінантні регіони -->
+        <circle cx="80" cy="110" r="42" fill="none" stroke="#c0392b" stroke-width="1.2" stroke-dasharray="5,3" opacity="0.6" />
+        <circle cx="180" cy="90" r="42" fill="none" stroke="#c0392b" stroke-width="1.2" stroke-dasharray="5,3" opacity="0.6" />
+        <circle cx="280" cy="110" r="42" fill="none" stroke="#c0392b" stroke-width="1.2" stroke-dasharray="5,3" opacity="0.6" />
+        <circle cx="130" cy="170" r="42" fill="none" stroke="#c0392b" stroke-width="1.2" stroke-dasharray="5,3" opacity="0.6" />
+        <circle cx="230" cy="170" r="42" fill="none" stroke="#c0392b" stroke-width="1.2" stroke-dasharray="5,3" opacity="0.6" />
+        
+        <text x="185" y="240" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#c0392b" text-anchor="middle" font-style="italic">Регіони великі, регулярної форми</text>
+        <text x="185" y="255" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#c0392b" text-anchor="middle" font-style="italic">Гравці розтягують оборону</text>
+        
+        <!-- Стрілка -->
+        <text x="370" y="160" font-family="Helvetica Neue, Arial, sans-serif" font-size="20" fill="#3a404a">→</text>
+        
+        <!-- Захисна команда (праворуч) -->
+        <rect x="395" y="20" width="340" height="280" rx="6" fill="#fefefd" stroke="#2e7d32" stroke-width="1.5" />
+        <text x="565" y="45" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" fill="#2e7d32" text-anchor="middle" font-weight="600">ЗАХИСНА КОМАНДА</text>
+        
+        <!-- Гравці захисту (компактно) -->
+        <circle cx="480" cy="130" r="9" fill="#2e7d32" />
+        <circle cx="530" cy="120" r="9" fill="#2e7d32" />
+        <circle cx="580" cy="130" r="9" fill="#2e7d32" />
+        <circle cx="505" cy="160" r="9" fill="#2e7d32" />
+        <circle cx="555" cy="160" r="9" fill="#2e7d32" />
+        
+        <!-- Малі домінантні регіони -->
+        <circle cx="480" cy="130" r="22" fill="none" stroke="#2e7d32" stroke-width="1.2" stroke-dasharray="5,3" opacity="0.6" />
+        <circle cx="530" cy="120" r="22" fill="none" stroke="#2e7d32" stroke-width="1.2" stroke-dasharray="5,3" opacity="0.6" />
+        <circle cx="580" cy="130" r="22" fill="none" stroke="#2e7d32" stroke-width="1.2" stroke-dasharray="5,3" opacity="0.6" />
+        <circle cx="505" cy="160" r="22" fill="none" stroke="#2e7d32" stroke-width="1.2" stroke-dasharray="5,3" opacity="0.6" />
+        <circle cx="555" cy="160" r="22" fill="none" stroke="#2e7d32" stroke-width="1.2" stroke-dasharray="5,3" opacity="0.6" />
+        
+        <text x="565" y="240" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#2e7d32" text-anchor="middle" font-style="italic">Регіони малі, неправильної форми</text>
+        <text x="565" y="255" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#2e7d32" text-anchor="middle" font-style="italic">Висока щільність, компактність</text>
+      </svg>
+      <div class="scheme-caption">Атакуючі гравці мають більші та регулярніші домінантні регіони, тоді як захисники діють компактно.</div>
+    </div>
+    
+    <p>Дослідження підтвердили, що атакуючі гравці завжди асоціюються з більшими за розміром домінантними регіонами. Команда, яка володіє м'ячем, цілеспрямовано намагається розширити ігровий простір та розтягнути оборонну лінію опонентів. Наявність великого домінантного регіону надає нападнику додатковий час на обробку м'яча та оцінку тактичної ситуації. Ці регіони також відрізняються більшою мінливістю розмірів серед різних гравців однієї атакуючої команди.</p>
+    
+    <!-- Схема 2: Форма регіонів -->
+    <div class="scheme-container">
+      <div class="scheme-title">Рис. 2 — Порівняння форми домінантних регіонів</div>
+      <svg class="scheme-canvas" viewBox="0 0 700 200" preserveAspectRatio="xMidYMid meet">
+        <!-- Атака: регулярна форма -->
+        <rect x="20" y="20" width="310" height="160" rx="6" fill="#fefefd" stroke="#c0392b" stroke-width="1" />
+        <text x="175" y="40" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#c0392b" text-anchor="middle" font-weight="600">Атака: Регулярна форма</text>
+        
+        <circle cx="100" cy="100" r="8" fill="#c0392b" />
+        <circle cx="175" cy="85" r="8" fill="#c0392b" />
+        <circle cx="250" cy="100" r="8" fill="#c0392b" />
+        
+        <!-- Правильні многокутники -->
+        <polygon points="100,100 137,85 175,85 175,115 137,115" fill="#c0392b" opacity="0.08" stroke="#c0392b" stroke-width="1" />
+        <polygon points="175,85 212,92 250,100 212,108" fill="#c0392b" opacity="0.08" stroke="#c0392b" stroke-width="1" />
+        
+        <text x="175" y="155" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#c0392b" text-anchor="middle" font-style="italic">Геометрично правильні</text>
+        <text x="175" y="168" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#c0392b" text-anchor="middle" font-style="italic">Рівномірне розташування</text>
+        
+        <!-- Захист: неправильна форма -->
+        <rect x="370" y="20" width="310" height="160" rx="6" fill="#fefefd" stroke="#2e7d32" stroke-width="1" />
+        <text x="525" y="40" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#2e7d32" text-anchor="middle" font-weight="600">Захист: Неправильна форма</text>
+        
+        <circle cx="450" cy="105" r="8" fill="#2e7d32" />
+        <circle cx="520" cy="95" r="8" fill="#2e7d32" />
+        <circle cx="500" cy="130" r="8" fill="#2e7d32" />
+        
+        <!-- Неправильні многокутники -->
+        <polygon points="450,105 485,95 520,95 510,115 480,125" fill="#2e7d32" opacity="0.08" stroke="#2e7d32" stroke-width="1" />
+        <polygon points="520,95 540,110 500,130 485,120" fill="#2e7d32" opacity="0.08" stroke="#2e7d32" stroke-width="1" />
+        
+        <text x="525" y="155" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#2e7d32" text-anchor="middle" font-style="italic">Геометрично неправильні</text>
+        <text x="525" y="168" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#2e7d32" text-anchor="middle" font-style="italic">Реакція на суперника</text>
+      </svg>
+      <div class="scheme-caption">Нападники зберігають рівномірне розташування (правильні регіони), захисники реагують на маневри (неправильні регіони).</div>
+    </div>
+    
+    <p>Попри різницю у розмірах, форма домінантних регіонів нападників є геометрично більш правильною та регулярною, ніж у захисників. Це явище пояснюється тим, що гравці атаки намагаються зберігати рівномірне розташування на майданчику для забезпечення ширини наступу. Захисники діють у зовсім інших просторових умовах. Вони змушені постійно реагувати на переміщення м'яча та маневри суперників. Захисники постійно руйнують свою геометричну структуру заради страхування партнерів. Їхні домінантні регіони стають набагато меншими та мають неправильну форму. Це свідчить про створення високої щільності оборонних редутів.</p>
+    
+    <!-- Висновок -->
+    <div class="highlight-box">
+      <p style="margin-bottom: 0.5rem; font-weight: 600;">Результати дослідження:</p>
+      <p style="margin-bottom: 0;">Ці результати підтримують формальний опис динамічної просторової взаємодії гравців у будь-який момент часу. Такий аналітичний підхід може бути розширений на інші типи поведінки команд, де дії гравців безпосередньо пов'язані з простором, який вони обіймають.</p>
+    </div>
+    
+    <!-- Номер сторінки -->
+    <div class="page-number">— 4 —</div>
+  </article>
+</body>
+</html>

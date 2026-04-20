@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Просторовий контроль · Порівняння видів спорту</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .nav-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .nav-button {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      color: var(--ink-light);
+      padding: 0.5rem 1.2rem;
+      border: 1px solid var(--rule);
+      border-radius: 30px;
+      transition: all 0.2s ease;
+      background: transparent;
+    }
+    
+    .nav-button:hover {
+      border-color: var(--grass);
+      color: var(--grass-dark);
+      background: rgba(46, 125, 50, 0.03);
+    }
+    
+    .scheme-container {
+      margin: 2.5rem 0;
+      padding: 1.5rem;
+      background: var(--sky-light);
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+    }
+    
+    .scheme-title {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-light);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    
+    .scheme-canvas {
+      display: block;
+      width: 100%;
+      max-width: 750px;
+      margin: 0 auto;
+    }
+    
+    .scheme-caption {
+      font-size: 0.85rem;
+      color: var(--ink-light);
+      margin-top: 1rem;
+      text-align: center;
+      font-style: italic;
+    }
+    
+    .comparison-matrix {
+      margin: 2.5rem 0;
+      overflow-x: auto;
+    }
+    
+    .comparison-matrix table {
+      min-width: 900px;
+    }
+    
+    .comparison-matrix th {
+      background: var(--grass);
+      color: white;
+      text-align: center;
+      padding: 1rem 0.8rem;
+    }
+    
+    .comparison-matrix td {
+      text-align: center;
+      padding: 0.8rem;
+    }
+    
+    .comparison-matrix td:first-child {
+      font-weight: 600;
+      text-align: left;
+      background: var(--sky-light);
+    }
+    
+    .sport-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin: 2rem 0 1rem 0;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 0.5rem;
+    }
+    
+    .sport-tab {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.7rem 1.5rem;
+      background: transparent;
+      border: 1px solid var(--rule);
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: var(--ink-light);
+    }
+    
+    .sport-tab:hover {
+      border-color: var(--grass);
+      color: var(--grass-dark);
+    }
+    
+    .sport-tab.active {
+      background: var(--grass);
+      color: white;
+      border-color: var(--grass);
+    }
+    
+    .sport-panel {
+      display: none;
+    }
+    
+    .sport-panel.active {
+      display: block;
+    }
+    
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .metric-card {
+      background: var(--sky-light);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-bottom: 3px solid var(--grass);
+    }
+    
+    .metric-title {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--grass-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .metric-value {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--accent);
+    }
+    
+    .metric-unit {
+      font-size: 0.8rem;
+      color: var(--ink-light);
+      margin-left: 0.3rem;
+    }
+    
+    .insight-box {
+      background: var(--paper);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid var(--accent);
+      border-left-width: 4px;
+      margin: 2rem 0;
+    }
+    
+    .insight-box h3 {
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      font-style: normal;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    
+    @media (max-width: 700px) {
+      .metric-grid {
+        grid-template-columns: 1fr;
+      }
+      .sport-tabs {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article>
+    <!-- Навігація -->
+    <div class="nav-top">
+      <a href="case-studies.html" class="nav-button">← Кейс-стаді</a>
+      <div class="nav-links">
+        <a href="technology.html" class="nav-button">Технології →</a>
+      </div>
+    </div>
+    
+    <!-- Заголовок -->
+    <h1>Порівняльний аналіз: просторовий контроль у різних видах спорту</h1>
+    
+    <!-- Основний текст -->
+    <p>Принципи просторового контролю є універсальними, проте кожен вид спорту накладає унікальні обмеження на їх застосування. Розміри майданчика, кількість гравців, правила переміщення та специфіка ігрового снаряду формують особливі просторові патерни. Нижче представлено порівняльний аналіз семи командних видів спорту через призму просторового контролю.</p>
+    
+    <!-- Порівняльна таблиця -->
+    <div class="comparison-matrix">
+      <table>
+        <thead>
+          <tr>
+            <th>Вид спорту</th>
+            <th>Розміри поля (м)</th>
+            <th>Гравців</th>
+            <th>Простір на гравця (м²)</th>
+            <th>Ключова метрика</th>
+            <th>Унікальне обмеження</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Футбол</td>
+            <td>105 × 68</td>
+            <td>11</td>
+            <td>~650</td>
+            <td>Контроль поля (%)</td>
+            <td>Офсайд</td>
+          </tr>
+          <tr>
+            <td>Футзал</td>
+            <td>40 × 20</td>
+            <td>5</td>
+            <td>~160</td>
+            <td>Ротації/хв</td>
+            <td>4-секундне правило</td>
+          </tr>
+          <tr>
+            <td>Баскетбол</td>
+            <td>28 × 15</td>
+            <td>5</td>
+            <td>~84</td>
+            <td>Spacing (3-pt)</td>
+            <td>24-секундний кидок</td>
+          </tr>
+          <tr>
+            <td>Хокей</td>
+            <td>61 × 30</td>
+            <td>6</td>
+            <td>~305</td>
+            <td>Вхід у зону (%)</td>
+            <td>Офсайд, проброс</td>
+          </tr>
+          <tr>
+            <td>Гандбол</td>
+            <td>40 × 20</td>
+            <td>7</td>
+            <td>~114</td>
+            <td>6-метрова зона</td>
+            <td>Пасивна гра</td>
+          </tr>
+          <tr>
+            <td>Регбі</td>
+            <td>100 × 70</td>
+            <td>15</td>
+            <td>~467</td>
+            <td>Територія (%)</td>
+            <td>Пас тільки назад</td>
+          </tr>
+          <tr>
+            <td>Водне поло</td>
+            <td>30 × 20</td>
+            <td>7</td>
+            <td>~86</td>
+            <td>Позиція центру</td>
+            <td>30-секунд володіння</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- Таби -->
+    <div class="sport-tabs">
+      <div class="sport-tab active" data-sport="football">⚽ Футбол</div>
+      <div class="sport-tab" data-sport="futsal">🏐 Футзал</div>
+      <div class="sport-tab" data-sport="basketball">🏀 Баскетбол</div>
+      <div class="sport-tab" data-sport="hockey">🏒 Хокей</div>
+      <div class="sport-tab" data-sport="handball">🤾 Гандбол</div>
+      <div class="sport-tab" data-sport="rugby">🏉 Регбі</div>
+    </div>
+    
+    <!-- ФУТБОЛ -->
+    <div class="sport-panel active" id="football">
+      <div class="scheme-container">
+        <div class="scheme-title">Футбол — найбільше поле, найбільше простору на гравця</div>
+        <svg class="scheme-canvas" viewBox="0 0 700 300" preserveAspectRatio="xMidYMid meet">
+          <rect x="20" y="20" width="660" height="260" fill="#d6eaf8" stroke="#2e7d32" stroke-width="2" />
+          
+          <!-- Розмітка -->
+          <line x1="350" y1="20" x2="350" y2="280" stroke="#3a404a" stroke-width="1" />
+          <circle cx="350" cy="150" r="45" fill="none" stroke="#3a404a" stroke-width="1" />
+          
+          <!-- Штрафні -->
+          <rect x="20" y="70" width="80" height="160" fill="none" stroke="#3a404a" stroke-width="1" />
+          <rect x="600" y="70" width="80" height="160" fill="none" stroke="#3a404a" stroke-width="1" />
+          
+          <!-- Ворота -->
+          <rect x="20" y="110" width="25" height="80" fill="none" stroke="#c0392b" stroke-width="2" />
+          <rect x="655" y="110" width="25" height="80" fill="none" stroke="#2e7d32" stroke-width="2" />
+          
+          <!-- Гравці — розосереджені -->
+          <circle cx="120" cy="100" r="7" fill="#c0392b" />
+          <circle cx="200" cy="140" r="7" fill="#c0392b" />
+          <circle cx="280" cy="120" r="7" fill="#c0392b" />
+          <circle cx="350" cy="160" r="7" fill="#c0392b" />
+          <circle cx="420" cy="130" r="7" fill="#c0392b" />
+          <circle cx="500" cy="110" r="7" fill="#c0392b" />
+          
+          <circle cx="250" cy="190" r="7" fill="#2e7d32" />
+          <circle cx="320" cy="200" r="7" fill="#2e7d32" />
+          <circle cx="400" cy="190" r="7" fill="#2e7d32" />
+          <circle cx="480" cy="210" r="7" fill="#2e7d32" />
+          
+          <!-- Зони контролю -->
+          <circle cx="200" cy="140" r="35" fill="none" stroke="#c0392b" stroke-width="1" stroke-dasharray="4,3" opacity="0.6" />
+          <circle cx="420" cy="130" r="35" fill="none" stroke="#c0392b" stroke-width="1" stroke-dasharray="4,3" opacity="0.6" />
+          
+          <text x="350" y="285" font-family="Helvetica Neue" font-size="9" fill="#3a404a" text-anchor="middle">Простір на гравця: ~650 м² — найбільший серед усіх видів</text>
+        </svg>
+        <div class="scheme-caption">Великий простір дозволяє створювати значні домінантні регіони та використовувати всю ширину поля.</div>
+      </div>
+      
+      <div class="metric-grid">
+        <div class="metric-card">
+          <div class="metric-title">Простір на гравця</div>
+          <div class="metric-value">650 <span class="metric-unit">м²</span></div>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem;">Найбільший показник серед усіх видів — дозволяє значне розширення домінантних регіонів.</p>
+        </div>
+        <div class="metric-card">
+          <div class="metric-title">Унікальне обмеження</div>
+          <div class="metric-value">Офсайд</div>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem;">Штучне обмеження простору для атаки — змушує нападників грати перед захисниками.</p>
+        </div>
+      </div>
+      
+      <div class="insight-box">
+        <h3>🔍 Просторова специфіка футболу</h3>
+        <p>Великий розмір поля (7140 м²) створює унікальну динаміку: гравці мають найбільші домінантні регіони, але водночас найбільші відстані для подолання. Це робить перехідні фази (контратаки) надзвичайно небезпечними — захисники фізично не встигають повернутися. Правило офсайду є штучним просторовим обмеженням, яке змушує атакуючу команду діяти в межах 30-40 метрів глибини. Сучасний футбол характеризується високою лінією захисту та агресивним пресингом для мінімізації простору суперника.</p>
+      </div>
+    </div>
+    
+    <!-- ФУТЗАЛ -->
+    <div class="sport-panel" id="futsal">
+      <div class="scheme-container">
+        <div class="scheme-title">Футзал — максимальна щільність, швидкі ротації</div>
+        <svg class="scheme-canvas" viewBox="0 0 700 300" preserveAspectRatio="xMidYMid meet">
+          <rect x="50" y="30" width="600" height="240" fill="#d6eaf8" stroke="#2e7d32" stroke-width="2" />
+          <line x1="350" y1="30" x2="350" y2="270" stroke="#3a404a" stroke-width="1" />
+          <circle cx="350" cy="150" r="30" fill="none" stroke="#3a404a" stroke-width="1" />
+          
+          <rect x="50" y="90" width="15" height="120" fill="none" stroke="#c0392b" stroke-width="2" />
+          <rect x="635" y="90" width="15" height="120" fill="none" stroke="#2e7d32" stroke-width="2" />
+          
+          <!-- Гравці — компактно -->
+          <circle cx="150" cy="120" r="7" fill="#c0392b" />
+          <circle cx="220" cy="140" r="7" fill="#c0392b" />
+          <circle cx="280" cy="130" r="7" fill="#c0392b" />
+          <circle cx="200" cy="170" r="7" fill="#c0392b" />
+          
+          <circle cx="400" cy="130" r="7" fill="#2e7d32" />
+          <circle cx="460" cy="140" r="7" fill="#2e7d32" />
+          <circle cx="520" cy="125" r="7" fill="#2e7d32" />
+          <circle cx="480" cy="170" r="7" fill="#2e7d32" />
+          
+          <!-- Ротаційні стрілки -->
+          <path d="M 150 120 Q 180 100 220 140" stroke="#c0392b" stroke-width="1.5" fill="none" stroke-dasharray="3,2" marker-end="url(#arrowFutsal)" />
+          <path d="M 220 140 Q 250 120 280 130" stroke="#c0392b" stroke-width="1.5" fill="none" stroke-dasharray="3,2" marker-end="url(#arrowFutsal)" />
+          
+          <defs>
+            <marker id="arrowFutsal" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+              <polygon points="0 0, 6 2, 0 4" fill="#c0392b" />
+            </marker>
+          </defs>
+          
+          <text x="350" y="285" font-family="Helvetica Neue" font-size="9" fill="#3a404a" text-anchor="middle">Простір на гравця: ~160 м² — висока щільність, швидкі рішення</text>
+        </svg>
+        <div class="scheme-caption">Обмежений простір вимагає постійних ротацій та швидкого прийняття рішень.</div>
+      </div>
+      
+      <div class="metric-grid">
+        <div class="metric-card">
+          <div class="metric-title">Ротації</div>
+          <div class="metric-value">4-6 <span class="metric-unit">за хвилину</span></div>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem;">Постійна зміна позицій для створення простору в умовах високої щільності.</p>
+        </div>
+        <div class="metric-card">
+          <div class="metric-title">4-секундне правило</div>
+          <div class="metric-value">4 <span class="metric-unit">секунди</span></div>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem;">Воротар і гравці обмежені в часі володіння — прискорює темп гри.</p>
+        </div>
+      </div>
+      
+      <div class="insight-box">
+        <h3>🔍 Просторова специфіка футзалу</h3>
+        <p>Футзал є ідеальною лабораторією для вивчення просторової динаміки. Малий майданчик (800 м²) при 5 гравцях створює найвищу щільність серед усіх видів спорту. Це змушує гравців виконувати постійні ротації (4-6 змін позицій за хвилину) для створення вільного простору. 4-секундне правило для воротаря та обмеження на пас назад суттєво впливають на просторову динаміку. Дослідження показують, що у футзалі атакуючі гравці мають значно більші домінантні регіони, ніж захисники, що прямо протилежно великому футболу.</p>
+      </div>
+    </div>
+    
+    <!-- БАСКЕТБОЛ -->
+    <div class="sport-panel" id="basketball">
+      <div class="scheme-container">
+        <div class="scheme-title">Баскетбол — триочкова лінія як просторовий магніт</div>
+        <svg class="scheme-canvas" viewBox="0 0 700 300" preserveAspectRatio="xMidYMid meet">
+          <rect x="30" y="30" width="640" height="240" fill="#d6eaf8" stroke="#2e7d32" stroke-width="2" />
+          <line x1="350" y1="30" x2="350" y2="270" stroke="#3a404a" stroke-width="1" />
+          
+          <!-- Триочкова лінія -->
+          <path d="M 120 200 Q 120 60 350 60 Q 580 60 580 200" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,3" />
+          
+          <!-- Трисекундна зона -->
+          <rect x="280" y="120" width="140" height="100" fill="none" stroke="#3a404a" stroke-width="1" />
+          
+          <!-- Кошики -->
+          <circle cx="350" cy="60" r="8" fill="none" stroke="#c0392b" stroke-width="2" />
+          <circle cx="350" cy="240" r="8" fill="none" stroke="#2e7d32" stroke-width="2" />
+          
+          <!-- Гравці — spacing -->
+          <circle cx="200" cy="130" r="7" fill="#c0392b" />
+          <circle cx="350" cy="140" r="7" fill="#c0392b" />
+          <circle cx="500" cy="130" r="7" fill="#c0392b" />
+          <circle cx="280" cy="180" r="7" fill="#c0392b" />
+          <circle cx="420" cy="180" r="7" fill="#c0392b" />
+          
+          <circle cx="250" cy="150" r="7" fill="#2e7d32" />
+          <circle cx="350" cy="160" r="7" fill="#2e7d32" />
+          <circle cx="450" cy="150" r="7" fill="#2e7d32" />
+          
+          <text x="350" y="285" font-family="Helvetica Neue" font-size="9" fill="#3a404a" text-anchor="middle">Простір на гравця: ~84 м² — найменший серед усіх видів</text>
+        </svg>
+        <div class="scheme-caption">Триочкова лінія розтягує захист, створюючи простір для проходів та передач.</div>
+      </div>
+      
+      <div class="metric-grid">
+        <div class="metric-card">
+          <div class="metric-title">Spacing</div>
+          <div class="metric-value">5-out <span class="metric-unit">схема</span></div>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem;">Розтягування захисту по периметру для створення простору в "фарбі".</p>
+        </div>
+        <div class="metric-card">
+          <div class="metric-title">24 секунди</div>
+          <div class="metric-value">24 <span class="metric-unit">сек</span></div>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem;">Обмеження часу на атаку змушує до активних просторових дій.</p>
+        </div>
+      </div>
+      
+      <div class="insight-box">
+        <h3>Просторова специфіка баскетболу</h3>
+        <p>Баскетбол має найменший простір на гравця (84 м²) серед усіх основних видів спорту. Це створює унікальну динаміку, де триочкова лінія діє як "просторовий магніт" — загроза дальнього кидка змушує захисників виходити на периметр, відкриваючи простір у трисекундній зоні. Концепція "spacing" (5-out offense) є фундаментальною для сучасного баскетболу. 24-секундне правило на володіння гарантує, що команди не можуть пасивно утримувати простір — вони повинні постійно атакувати.</p>
+      </div>
+    </div>
+    
+    <!-- ХОКЕЙ -->
+    <div class="sport-panel" id="hockey">
+      <div class="scheme-container">
+        <div class="scheme-title">Хокей — зони та борти як просторові елементи</div>
+        <svg class="scheme-canvas" viewBox="0 0 700 300" preserveAspectRatio="xMidYMid meet">
+          <rect x="20" y="40" width="660" height="220" fill="#e8f2fa" stroke="#2e7d32" stroke-width="2" />
+          
+          <!-- Сині лінії -->
+          <line x1="180" y1="40" x2="180" y2="260" stroke="#3a5a8b" stroke-width="3" />
+          <line x1="520" y1="40" x2="520" y2="260" stroke="#3a5a8b" stroke-width="3" />
+          <line x1="350" y1="40" x2="350" y2="260" stroke="#c0392b" stroke-width="2" />
+          
+          <!-- Ворота -->
+          <rect x="20" y="120" width="20" height="60" fill="none" stroke="#c0392b" stroke-width="2" />
+          <rect x="660" y="120" width="20" height="60" fill="none" stroke="#2e7d32" stroke-width="2" />
+          
+          <!-- Гравці -->
+          <circle cx="120" cy="130" r="7" fill="#c0392b" />
+          <circle cx="200" cy="110" r="7" fill="#c0392b" />
+          <circle cx="250" cy="150" r="7" fill="#c0392b" />
+          
+          <circle cx="450" cy="130" r="7" fill="#2e7d32" />
+          <circle cx="500" cy="110" r="7" fill="#2e7d32" />
+          <circle cx="550" cy="150" r="7" fill="#2e7d32" />
+          
+          <!-- Шайба -->
+          <circle cx="300" cy="140" r="5" fill="#1a1e24" />
+          
+          <!-- Зони -->
+          <text x="100" y="80" font-family="Helvetica Neue" font-size="9" fill="#3a5a8b" text-anchor="middle">зона атаки</text>
+          <text x="350" y="80" font-family="Helvetica Neue" font-size="9" fill="#c0392b" text-anchor="middle">нейтральна</text>
+          <text x="600" y="80" font-family="Helvetica Neue" font-size="9" fill="#3a5a8b" text-anchor="middle">зона захисту</text>
+          
+          <text x="350" y="285" font-family="Helvetica Neue" font-size="9" fill="#3a404a" text-anchor="middle">Простір на гравця: ~305 м² — борти додають динаміки</text>
+        </svg>
+        <div class="scheme-caption">Поділ на зони та наявність бортів створюють унікальну просторову динаміку.</div>
+      </div>
+      
+      <div class="metric-grid">
+        <div class="metric-card">
+          <div class="metric-title">Вхід у зону</div>
+          <div class="metric-value">52<span class="metric-unit">% успіху</span></div>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem;">Контрольований вхід у зону атаки — ключова просторова метрика.</p>
+        </div>
+        <div class="metric-card">
+          <div class="metric-title">Зміни</div>
+          <div class="metric-value">45<span class="metric-unit">сек зміна</span></div>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem;">Часті зміни ланок підтримують високу інтенсивність просторової боротьби.</p>
+        </div>
+      </div>
+      
+      <div class="insight-box">
+        <h3>Просторова специфіка хокею</h3>
+        <p>Хокей унікальний через наявність бортів — м'яч (шайба) може відскакувати, створюючи непередбачувані просторові ситуації. Поділ майданчика на три зони синіми лініями та правило офсайду змушують команди контролювати вхід у зону атаки. Статистика показує, що контрольований вхід (з пасом або дриблінгом) призводить до вдвічі більшої кількості кидків, ніж простий вкид шайби. Часті зміни ланок (кожні 45 секунд) означають, що просторова інтенсивність підтримується на максимальному рівні.</p>
+      </div>
+    </div>
+    
+    <!-- ГАНДБОЛ -->
+    <div class="sport-panel" id="handball">
+      <div class="scheme-container">
+        <div class="scheme-title">Гандбол — 6-метрова зона як заборонений простір</div>
+        <svg class="scheme-canvas" viewBox="0 0 700 300" preserveAspectRatio="xMidYMid meet">
+          <rect x="50" y="30" width="600" height="240" fill="#d6eaf8" stroke="#2e7d32" stroke-width="2" />
+          <line x1="350" y1="30" x2="350" y2="270" stroke="#3a404a" stroke-width="1" />
+          
+          <!-- 6-метрові зони -->
+          <path d="M 50 150 Q 80 80 120 60 L 580 60 Q 620 80 650 150" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,3" />
+          <path d="M 50 150 Q 80 220 120 240 L 580 240 Q 620 220 650 150" fill="none" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,3" />
+          
+          <!-- Ворота -->
+          <rect x="50" y="120" width="15" height="60" fill="none" stroke="#c0392b" stroke-width="2" />
+          <rect x="635" y="120" width="15" height="60" fill="none" stroke="#2e7d32" stroke-width="2" />
+          
+          <!-- Гравці -->
+          <circle cx="150" cy="130" r="7" fill="#c0392b" />
+          <circle cx="220" cy="100" r="7" fill="#c0392b" />
+          <circle cx="200" cy="170" r="7" fill="#c0392b" />
+          <circle cx="280" cy="140" r="7" fill="#c0392b" />
+          
+          <circle cx="420" cy="130" r="7" fill="#2e7d32" />
+          <circle cx="480" cy="110" r="7" fill="#2e7d32" />
+          <circle cx="450" cy="170" r="7" fill="#2e7d32" />
+          
+          <text x="350" y="285" font-family="Helvetica Neue" font-size="9" fill="#3a404a" text-anchor="middle">6-метрова зона — заборонений простір для польових гравців</text>
+        </svg>
+        <div class="scheme-caption">6-метрова зона є унікальним просторовим обмеженням — тільки воротар може там перебувати.</div>
+      </div>
+      
+      <div class="metric-grid">
+        <div class="metric-card">
+          <div class="metric-title">6-метрова зона</div>
+          <div class="metric-value">~113 <span class="metric-unit">м²</span></div>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem;">Заборонений простір змушує атакувати з дистанції або у стрибку.</p>
+        </div>
+        <div class="metric-card">
+          <div class="metric-title">Пасивна гра</div>
+          <div class="metric-value">6 <span class="metric-unit">пасів</span></div>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem;">Після 6 пасів без просування — втрата м'яча за пасивність.</p>
+        </div>
+      </div>
+      
+      <div class="insight-box">
+        <h3>Просторова специфіка гандболу</h3>
+        <p>Гандбол має унікальне просторове обмеження — 6-метрову зону, в якій заборонено перебувати польовим гравцям. Це створює "мертву зону" для захисту — воротар є єдиним захисником цього простору. Атакуючі гравці змушені кидати з дистанції або стрибати в зону, виконуючи кидок до приземлення. Правило пасивної гри (попередження після 6 пасів без просування) стимулює постійний просторовий тиск на захист. Гандбол також відомий швидкими переходами — контратаки 3-на-2 або 2-на-1 є стандартними ситуаціями.</p>
+      </div>
+    </div>
+    
+    <!-- РЕГБІ -->
+    <div class="sport-panel" id="rugby">
+      <div class="scheme-container">
+        <div class="scheme-title">Регбі — пас тільки назад, простір створюється глибиною</div>
+        <svg class="scheme-canvas" viewBox="0 0 700 300" preserveAspectRatio="xMidYMid meet">
+          <rect x="20" y="20" width="660" height="260" fill="#d6eaf8" stroke="#2e7d32" stroke-width="2" />
+          
+          <!-- Лінії -->
+          <line x1="20" y1="80" x2="680" y2="80" stroke="#3a404a" stroke-width="1" stroke-dasharray="4,3" />
+          <line x1="20" y1="220" x2="680" y2="220" stroke="#3a404a" stroke-width="1" stroke-dasharray="4,3" />
+          
+          <!-- Залікові зони -->
+          <rect x="20" y="20" width="40" height="260" fill="#c0392b" opacity="0.1" />
+          <rect x="640" y="20" width="40" height="260" fill="#2e7d32" opacity="0.1" />
+          
+          <!-- Гравці — глибока розстановка -->
+          <circle cx="120" cy="140" r="7" fill="#c0392b" />
+          <circle cx="200" cy="120" r="7" fill="#c0392b" />
+          <circle cx="200" cy="160" r="7" fill="#c0392b" />
+          <circle cx="280" cy="140" r="7" fill="#c0392b" />
+          <circle cx="350" cy="100" r="7" fill="#c0392b" />
+          <circle cx="350" cy="180" r="7" fill="#c0392b" />
+          
+          <circle cx="420" cy="130" r="7" fill="#2e7d32" />
+          <circle cx="500" cy="140" r="7" fill="#2e7d32" />
+          <circle cx="580" cy="130" r="7" fill="#2e7d32" />
+          <circle cx="580" cy="160" r="7" fill="#2e7d32" />
+          
+          <!-- М'яч -->
+          <circle cx="250" cy="140" r="6" fill="#f5f5f0" stroke="#3a404a" stroke-width="1" />
+          
+          <!-- Лінія офсайду -->
+          <line x1="260" y1="40" x2="260" y2="240" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="6,3" />
+          <text x="270" y="60" font-family="Helvetica Neue" font-size="8" fill="#c0392b">лінія офсайду</text>
+          
+          <text x="350" y="285" font-family="Helvetica Neue" font-size="9" fill="#3a404a" text-anchor="middle">Пас тільки назад — глибина побудови є ключовою</text>
+        </svg>
+        <div class="scheme-caption">Заборона пасу вперед змушує створювати глибину атаки через позиціонування гравців.</div>
+      </div>
+      
+      <div class="metric-grid">
+        <div class="metric-card">
+          <div class="metric-title">Територія</div>
+          <div class="metric-value">54<span class="metric-unit">% перемога</span></div>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem;">Команди з територіальною перевагою виграють 54% матчів.</p>
+        </div>
+        <div class="metric-card">
+          <div class="metric-title">Пас назад</div>
+          <div class="metric-value">0 <span class="metric-unit">вперед</span></div>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem;">М'яч можна просувати тільки ногами або через прориви.</p>
+        </div>
+      </div>
+      
+      <div class="insight-box">
+        <h3>Просторова специфіка регбі</h3>
+        <p>Регбі має фундаментальне просторове обмеження — пас можна віддавати тільки назад (або паралельно). Це означає, що простір для атаки створюється не через пас вперед, а через глибину розстановки гравців та їхній рух. Лінія офсайду постійно рухається за м'ячем, створюючи динамічну просторову межу. Територіальний контроль (відсоток часу на половині суперника) є однією з найсильніших предикторів перемоги — команди, які проводять більше часу на чужій половині, виграють 54% матчів.</p>
+      </div>
+    </div>
+    
+    <!-- Підсумкова таблиця -->
+    <h2>Узагальнення: універсальні принципи крізь призму правил</h2>
+    
+    <div class="comparison-matrix">
+      <table>
+        <thead>
+          <tr>
+            <th>Принцип</th>
+            <th>Футбол</th>
+            <th>Футзал</th>
+            <th>Баскетбол</th>
+            <th>Хокей</th>
+            <th>Гандбол</th>
+            <th>Регбі</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Розширення простору в атаці</td>
+            <td>+++++</td>
+            <td>+++</td>
+            <td>++++</td>
+            <td>+++</td>
+            <td>+++</td>
+            <td>++++</td>
+          </tr>
+          <tr>
+            <td>Ущільнення в захисті</td>
+            <td>++++</td>
+            <td>+++++</td>
+            <td>++++</td>
+            <td>++++</td>
+            <td>+++++</td>
+            <td>+++</td>
+          </tr>
+          <tr>
+            <td>Швидкість переходів</td>
+            <td>+++</td>
+            <td>+++++</td>
+            <td>+++++</td>
+            <td>+++++</td>
+            <td>+++++</td>
+            <td>++</td>
+          </tr>
+          <tr>
+            <td>Просторові обмеження</td>
+            <td>Офсайд</td>
+            <td>4-сек правило</td>
+            <td>24 сек, 3 сек</td>
+            <td>Офсайд, проброс</td>
+            <td>6-м зона, пасив</td>
+            <td>Пас назад, офсайд</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="insight-box">
+      <h3>Ключовий висновок</h3>
+      <p>Незважаючи на суттєві відмінності в правилах, розмірах майданчиків та кількості гравців, усі командні види спорту підпорядковуються єдиним просторовим принципам: атакуюча команда прагне розширити простір, захисна — ущільнити. Відмінності полягають лише в тому, які інструменти доступні гравцям для досягнення цих цілей. Футбол покладається на великий простір і позиційну гру, футзал — на швидкі ротації, баскетбол — на spacing і триочкову загрозу, хокей — на контроль входу в зону, гандбол — на стрибки в заборонену зону, регбі — на глибину побудови та прориви.</p>
+    </div>
+    
+    <!-- Номер сторінки -->
+    <div class="page-number">— 14 —</div>
+  </article>
+  
+  <script>
+    (function() {
+      'use strict';
+      
+      // Таби для видів спорту
+      document.querySelectorAll('.sport-tab').forEach(tab => {
+        tab.addEventListener('click', function() {
+          document.querySelectorAll('.sport-tab').forEach(t => t.classList.remove('active'));
+          document.querySelectorAll('.sport-panel').forEach(p => p.classList.remove('active'));
+          
+          this.classList.add('active');
+          const sportId = this.dataset.sport;
+          document.getElementById(sportId).classList.add('active');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

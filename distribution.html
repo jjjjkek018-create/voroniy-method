@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Просторовий контроль · Баскетбольний напад</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .nav-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .nav-button {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      color: var(--ink-light);
+      padding: 0.5rem 1.2rem;
+      border: 1px solid var(--rule);
+      border-radius: 30px;
+      transition: all 0.2s ease;
+      background: transparent;
+    }
+    
+    .nav-button:hover {
+      border-color: var(--grass);
+      color: var(--grass-dark);
+      background: rgba(46, 125, 50, 0.03);
+    }
+    
+    .scheme-container {
+      margin: 2.5rem 0;
+      padding: 1.5rem;
+      background: var(--sky-light);
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+    }
+    
+    .scheme-title {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-light);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    
+    .scheme-canvas {
+      display: block;
+      width: 100%;
+      max-width: 750px;
+      margin: 0 auto;
+    }
+    
+    .scheme-caption {
+      font-size: 0.85rem;
+      color: var(--ink-light);
+      margin-top: 1rem;
+      text-align: center;
+      font-style: italic;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .stat-card {
+      background: var(--sky-light);
+      padding: 1.5rem 1rem;
+      border-radius: 8px;
+      text-align: center;
+      border-bottom: 3px solid var(--grass);
+    }
+    
+    .stat-number {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--grass-dark);
+      line-height: 1.2;
+    }
+    
+    .stat-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-light);
+      margin-top: 0.5rem;
+    }
+    
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .phase-card {
+      background: var(--sky-light);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--grass);
+    }
+    
+    .phase-card h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-style: normal;
+      font-weight: 600;
+    }
+    
+    .highlight-box {
+      background: var(--paper);
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-radius: 6px;
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--accent);
+    }
+    
+    @media (max-width: 700px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article>
+    <!-- Навігація -->
+    <div class="nav-top">
+      <a href="unequal.html" class="nav-button">← Гра в нерівних складах</a>
+      <div class="nav-links">
+        <a href="restrictions.html" class="nav-button">Обмеження моделей →</a>
+      </div>
+    </div>
+    
+    <!-- Заголовок -->
+    <h1>Просторовий розподіл під час баскетбольного нападу</h1>
+    
+    <!-- Основний текст -->
+    <p>Принципи управління ігровим простором є універсальними для більшості видів спорту. Аналіз позиційних даних у баскетболі також має критичне значення для оцінки ефективності команди. Оскільки розміри баскетбольного майданчика є фіксованими, відсоток площі, яку контролює команда, стає надійним індикатором її домінування. Дослідники вивчають наступальну тактичну поведінку баскетболістів за допомогою побудови просторових діаграм.</p>
+    
+    <!-- Статистика дослідження -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">1</div>
+        <div class="stat-label">Офіційний матч</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Команди (Австрія)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">19</div>
+        <div class="stat-label">Наступальних послідовностей</div>
+      </div>
+    </div>
+    
+    <p>Для проведення дослідження науковці спостерігали за офіційним матчем між двома командами талановитих австрійських баскетболістів. З цього матчу було відібрано дев'ятнадцять наступальних послідовностей для детального аналізу. Результати вимірювань підтверджують, що зміна відсотка контрольованої площі в кожен момент часу чудово описує моделі просторової організації команди. Цей показник дозволяє фахівцям чітко класифікувати та розрізняти перехідну фазу гри та фазу організованого позиційного нападу.</p>
+    
+    <!-- Схема 1: Дві фази нападу -->
+    <div class="scheme-container">
+      <div class="scheme-title">Рис. 1 — Порівняння перехідної фази та позиційного нападу</div>
+      <svg class="scheme-canvas" viewBox="0 0 750 300" preserveAspectRatio="xMidYMid meet">
+        <!-- Перехідна фаза -->
+        <rect x="15" y="20" width="345" height="260" rx="6" fill="#fefefd" stroke="#c0392b" stroke-width="1.5" />
+        <text x="187" y="42" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#c0392b" text-anchor="middle" font-weight="600">ПЕРЕХІДНА ФАЗА</text>
+        
+        <!-- Баскетбольний майданчик (половина) -->
+        <rect x="40" y="55" width="295" height="200" fill="#d6eaf8" stroke="#3a404a" stroke-width="1" />
+        
+        <!-- Кошик -->
+        <line x1="170" y1="55" x2="210" y2="55" stroke="#c0392b" stroke-width="3" />
+        <circle cx="190" cy="58" r="8" fill="none" stroke="#c0392b" stroke-width="1.5" />
+        
+        <!-- Атакуючі (швидко рухаються вперед) -->
+        <circle cx="100" cy="120" r="7" fill="#c0392b" />
+        <line x1="100" y1="120" x2="130" y2="105" stroke="#c0392b" stroke-width="1.5" marker-end="url(#arrowRed1)" />
+        
+        <circle cx="160" cy="100" r="7" fill="#c0392b" />
+        <line x1="160" y1="100" x2="185" y2="88" stroke="#c0392b" stroke-width="1.5" marker-end="url(#arrowRed1)" />
+        
+        <circle cx="130" cy="160" r="7" fill="#c0392b" />
+        <line x1="130" y1="160" x2="155" y2="148" stroke="#c0392b" stroke-width="1.5" marker-end="url(#arrowRed1)" />
+        
+        <!-- Захисники (не встигають) -->
+        <circle cx="250" cy="130" r="6" fill="#2e7d32" opacity="0.5" />
+        <circle cx="220" cy="170" r="6" fill="#2e7d32" opacity="0.5" />
+        <circle cx="270" cy="160" r="6" fill="#2e7d32" opacity="0.5" />
+        
+        <!-- М'яч -->
+        <circle cx="120" cy="110" r="5" fill="#f5f5f0" stroke="#3a404a" stroke-width="1" />
+        
+        <text x="187" y="248" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#c0392b" text-anchor="middle" font-style="italic">Швидке захоплення простору</text>
+        <text x="187" y="262" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#c0392b" text-anchor="middle" font-style="italic">Захисники не встигають</text>
+        
+        <!-- Стрілка -->
+        <text x="372" y="150" font-family="Helvetica Neue, Arial, sans-serif" font-size="22" fill="#3a404a">→</text>
+        
+        <!-- Позиційний напад -->
+        <rect x="390" y="20" width="345" height="260" rx="6" fill="#fefefd" stroke="#2e7d32" stroke-width="1.5" />
+        <text x="562" y="42" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#2e7d32" text-anchor="middle" font-weight="600">ПОЗИЦІЙНИЙ НАПАД</text>
+        
+        <rect x="415" y="55" width="295" height="200" fill="#d6eaf8" stroke="#3a404a" stroke-width="1" />
+        
+        <line x1="545" y1="55" x2="585" y2="55" stroke="#2e7d32" stroke-width="3" />
+        <circle cx="565" cy="58" r="8" fill="none" stroke="#2e7d32" stroke-width="1.5" />
+        
+        <!-- Атакуючі (розставлені) -->
+        <circle cx="460" cy="120" r="7" fill="#c0392b" />
+        <circle cx="520" cy="100" r="7" fill="#c0392b" />
+        <circle cx="580" cy="120" r="7" fill="#c0392b" />
+        <circle cx="490" cy="170" r="7" fill="#c0392b" />
+        <circle cx="550" cy="170" r="7" fill="#c0392b" />
+        
+        <!-- Захисники (щільна оборона) -->
+        <circle cx="475" cy="130" r="6" fill="#2e7d32" />
+        <circle cx="535" cy="110" r="6" fill="#2e7d32" />
+        <circle cx="595" cy="130" r="6" fill="#2e7d32" />
+        <circle cx="505" cy="180" r="6" fill="#2e7d32" />
+        <circle cx="565" cy="180" r="6" fill="#2e7d32" />
+        
+        <!-- Трисекундна зона -->
+        <rect x="520" y="120" width="60" height="80" fill="none" stroke="#3a404a" stroke-width="0.8" stroke-dasharray="4,3" />
+        
+        <text x="562" y="248" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#2e7d32" text-anchor="middle" font-style="italic">Ущільнення простору</text>
+        <text x="562" y="262" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#2e7d32" text-anchor="middle" font-style="italic">Ротації та заслони</text>
+        
+        <defs>
+          <marker id="arrowRed1" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#c0392b" />
+          </marker>
+        </defs>
+      </svg>
+      <div class="scheme-caption">Перехідна фаза характеризується швидким захопленням простору, позиційний напад — ущільненням оборони.</div>
+    </div>
+    
+    <p>Під час перехідної фази, яка виникає після перехоплення або підбору м'яча, просторовий розподіл команд кардинально змінюється. Атакуюча команда миттєво поширює свій контроль на великі ділянки чужої половини майданчика. Захисники суперника у цей момент ще не встигли сформувати організовану лінію оборони. Геометрія зон контролю атакуючих гравців витягується вперед у напрямку кошика.</p>
+    
+    <!-- Двоколонковий блок -->
+    <div class="two-column">
+      <div class="phase-card">
+        <h3>Перехідна фаза</h3>
+        <div class="highlight-box">
+          <p style="margin: 0;"><strong>Характеристики:</strong> Атакуюча команда миттєво поширює свій контроль на великі ділянки чужої половини майданчика. Захисники суперника у цей момент ще не встигли сформувати організовану лінію оборони.</p>
+        </div>
+        <p>Геометрія зон контролю атакуючих гравців витягується вперед у напрямку кошика. Швидкість прийняття рішень є критично важливою.</p>
+      </div>
+      
+      <div class="phase-card">
+        <h3>Позиційний напад</h3>
+        <div class="highlight-box">
+          <p style="margin: 0;"><strong>Характеристики:</strong> Захисники ущільнюють простір навколо трисекундної зони. Атакуючі гравці здійснюють постійні ротації та ставлять заслони.</p>
+        </div>
+        <p>Кожне зміщення захисника відкриває нову вільну зону для виконання кидка. Просторова картина набуває більш структурованого вигляду.</p>
+      </div>
+    </div>
+    
+    <p>Під час фази організованого нападу просторова картина набуває іншого вигляду. Захисники ущільнюють простір навколо трисекундної зони. Атакуючі гравці здійснюють постійні ротації та ставлять заслони, щоб змусити захисників змістити свої позиції. Кожне зміщення відкриває нову вільну зону для виконання кидка.</p>
+    
+    <!-- Схема 2: Практична цінність для тренерів -->
+    <div class="scheme-container">
+      <div class="scheme-title">Рис. 2 — Практична цінність просторових моделей для тренерів</div>
+      <svg class="scheme-canvas" viewBox="0 0 700 250" preserveAspectRatio="xMidYMid meet">
+        <!-- Традиційний відеоаналіз -->
+        <rect x="15" y="20" width="200" height="210" rx="6" fill="#fefefd" stroke="#3a404a" stroke-width="1" />
+        <text x="115" y="45" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#1a1e24" text-anchor="middle" font-weight="600">Ручний аналіз</text>
+        
+        <rect x="40" y="60" width="150" height="100" fill="#d6eaf8" stroke="#3a404a" stroke-width="0.8" />
+        <text x="115" y="95" font-family="Helvetica Neue, Arial, sans-serif" font-size="36" fill="#3a404a" text-anchor="middle">▶</text>
+        
+        <text x="115" y="185" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#c0392b" text-anchor="middle">Багато годин</text>
+        <text x="115" y="200" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#c0392b" text-anchor="middle">перегляду</text>
+        
+        <!-- Стрілка -->
+        <text x="225" y="125" font-family="Helvetica Neue, Arial, sans-serif" font-size="22" fill="#c0392b">→</text>
+        
+        <!-- Просторові моделі -->
+        <rect x="250" y="20" width="200" height="210" rx="6" fill="#fefefd" stroke="#2e7d32" stroke-width="2" />
+        <text x="350" y="45" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#2e7d32" text-anchor="middle" font-weight="600">Просторові моделі</text>
+        
+        <svg x="275" y="60" width="150" height="100" viewBox="0 0 150 100">
+          <rect x="10" y="10" width="130" height="80" fill="#d6eaf8" stroke="#2e7d32" stroke-width="1" />
+          <circle cx="40" cy="40" r="8" fill="#c0392b" />
+          <circle cx="80" cy="35" r="8" fill="#c0392b" />
+          <circle cx="110" cy="50" r="8" fill="#2e7d32" />
+          <circle cx="60" cy="65" r="8" fill="#2e7d32" />
+          <polygon points="40,40 60,35 80,35 70,50" fill="none" stroke="#c0392b" stroke-width="0.8" stroke-dasharray="3,2" />
+        </svg>
+        
+        <text x="350" y="185" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#2e7d32" text-anchor="middle">Об'єктивні дані</text>
+        <text x="350" y="200" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#2e7d32" text-anchor="middle">про позиційні помилки</text>
+        
+        <!-- Стрілка -->
+        <text x="460" y="125" font-family="Helvetica Neue, Arial, sans-serif" font-size="22" fill="#2e7d32">→</text>
+        
+        <!-- Результат -->
+        <rect x="485" y="20" width="200" height="210" rx="6" fill="#2e7d32" opacity="0.9" />
+        <text x="585" y="45" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="600">Результат</text>
+        
+        <text x="585" y="90" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="rgba(255,255,255,0.9)" text-anchor="middle">Звільнений час</text>
+        <text x="585" y="110" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="rgba(255,255,255,0.9)" text-anchor="middle">для підготовки</text>
+        <text x="585" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="rgba(255,255,255,0.9)" text-anchor="middle">якісних</text>
+        <text x="585" y="150" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="rgba(255,255,255,0.9)" text-anchor="middle">тренувальних</text>
+        <text x="585" y="170" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="rgba(255,255,255,0.9)" text-anchor="middle">планів</text>
+      </svg>
+      <div class="scheme-caption">Автоматизований просторовий аналіз скорочує час на відеоаналіз та підвищує якість тренувань.</div>
+    </div>
+    
+    <p>Практичне застосування таких просторових моделей має величезну цінність для баскетбольних тренерів. Цей метод допомагає значно скоротити час, який тренерський штаб витрачає на ручний відеоаналіз матчів. Тренери отримують об'єктивні дані щодо позиційних помилок своїх підопічних. Звільнений час фахівці можуть використати для підготовки більш якісних тренувальних планів.</p>
+    
+    <!-- Схема 3: Шкільний рівень -->
+    <div class="scheme-container">
+      <div class="scheme-title">Рис. 3 — Адаптація принципів для шкільної фізичної культури</div>
+      <svg class="scheme-canvas" viewBox="0 0 700 200" preserveAspectRatio="xMidYMid meet">
+        <rect x="10" y="15" width="680" height="170" rx="6" fill="#fefefd" stroke="#2e7d32" stroke-width="1" />
+        
+        <text x="350" y="40" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" fill="#1a1e24" text-anchor="middle" font-weight="600">Алгоритм дій під час швидкого прориву (шкільний рівень)</text>
+        
+        <!-- Крок 1 -->
+        <rect x="30" y="60" width="140" height="90" rx="6" fill="#d6eaf8" stroke="#2e7d32" stroke-width="1" />
+        <text x="100" y="80" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#1a1e24" text-anchor="middle" font-weight="600">Крок 1</text>
+        <text x="100" y="98" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#3a404a" text-anchor="middle">Отримання м'яча</text>
+        <text x="100" y="115" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#3a404a" text-anchor="middle">після перехоплення</text>
+        <text x="100" y="132" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#3a404a" text-anchor="middle">або підбору</text>
+        
+        <text x="180" y="105" font-family="Helvetica Neue, Arial, sans-serif" font-size="18" fill="#c0392b">→</text>
+        
+        <!-- Крок 2 -->
+        <rect x="200" y="60" width="140" height="90" rx="6" fill="#e8f2fa" stroke="#2e7d32" stroke-width="1" />
+        <text x="270" y="80" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#1a1e24" text-anchor="middle" font-weight="600">Крок 2</text>
+        <text x="270" y="98" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#3a404a" text-anchor="middle">Миттєвий ривок</text>
+        <text x="270" y="115" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#3a404a" text-anchor="middle">вперед для</text>
+        <text x="270" y="132" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#3a404a" text-anchor="middle">захоплення простору</text>
+        
+        <text x="350" y="105" font-family="Helvetica Neue, Arial, sans-serif" font-size="18" fill="#c0392b">→</text>
+        
+        <!-- Крок 3 -->
+        <rect x="370" y="60" width="140" height="90" rx="6" fill="#2e7d32" opacity="0.9" />
+        <text x="440" y="80" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="600">Крок 3</text>
+        <text x="440" y="98" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="rgba(255,255,255,0.9)" text-anchor="middle">Завершення атаки</text>
+        <text x="440" y="115" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="rgba(255,255,255,0.9)" text-anchor="middle">до того, як</text>
+        <text x="440" y="132" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="rgba(255,255,255,0.9)" text-anchor="middle">суперник повернеться</text>
+        
+        <text x="520" y="105" font-family="Helvetica Neue, Arial, sans-serif" font-size="18" fill="#c0392b">→</text>
+        
+        <!-- Результат -->
+        <rect x="540" y="60" width="130" height="90" rx="6" fill="#c0392b" opacity="0.9" />
+        <text x="605" y="90" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="600">ГОЛ</text>
+        <text x="605" y="108" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">або</text>
+        <text x="605" y="126" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">КИДОК</text>
+      </svg>
+      <div class="scheme-caption">На рівні шкільної фізичної культури принципи просторового контролю адаптуються через прості алгоритми.</div>
+    </div>
+    
+    <p>На рівні шкільної фізичної культури ці принципи також мають практичне застосування. Вчитель пояснює учням алгоритм дій під час швидкого прориву. Школярі вчаться миттєво бігти вперед після отримання м'яча, щоб захопити вільний простір до того, як суперник встигне повернутися в захист.</p>
+    
+    <!-- Номер сторінки -->
+    <div class="page-number">— 6 —</div>
+  </article>
+</body>
+</html>

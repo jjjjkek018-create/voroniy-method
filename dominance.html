@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Просторовий контроль · Амплуа в атаці та пресинг</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .nav-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .nav-button {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      color: var(--ink-light);
+      padding: 0.5rem 1.2rem;
+      border: 1px solid var(--rule);
+      border-radius: 30px;
+      transition: all 0.2s ease;
+      background: transparent;
+    }
+    
+    .nav-button:hover {
+      border-color: var(--grass);
+      color: var(--grass-dark);
+      background: rgba(46, 125, 50, 0.03);
+    }
+    
+    .scheme-container {
+      margin: 2.5rem 0;
+      padding: 1.5rem;
+      background: var(--sky-light);
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+    }
+    
+    .scheme-title {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-light);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    
+    .scheme-canvas {
+      display: block;
+      width: 100%;
+      max-width: 750px;
+      margin: 0 auto;
+    }
+    
+    .scheme-caption {
+      font-size: 0.85rem;
+      color: var(--ink-light);
+      margin-top: 1rem;
+      text-align: center;
+      font-style: italic;
+    }
+    
+    .role-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .role-card {
+      background: var(--sky-light);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--accent);
+    }
+    
+    .role-title {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .role-icon {
+      font-size: 1.5rem;
+    }
+    
+    .role-desc {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--ink-light);
+    }
+    
+    .pressing-table {
+      margin: 2rem 0;
+    }
+    
+    .stats-highlight {
+      background: var(--paper);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid var(--grass);
+      margin: 2rem 0;
+      text-align: center;
+    }
+    
+    .stats-number {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--grass-dark);
+    }
+    
+    @media (max-width: 700px) {
+      .role-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article>
+    <!-- Навігація -->
+    <div class="nav-top">
+      <a href="defence.html" class="nav-button">← Простір у захисті</a>
+      <div class="nav-links">
+        <a href="adaption.html" class="nav-button">Адаптація для уроків →</a>
+      </div>
+    </div>
+    
+    <!-- Заголовок -->
+    <h1>Специфіка просторового контролю за ігровими амплуа: атака</h1>
+    
+    <!-- Основний текст -->
+    <p>Гравці центральної осі діють у зонах з найвищою щільністю опонентів. Домінантні регіони півзахисників постійно перетинаються з регіонами гравців суперника. Завдання цих гравців полягає у безперервному пошуку вільного простору для виконання гострих передач. Елітні півзахисники володіють винятковою здатністю візуально сканувати майданчик та знаходити просторові коридори між лініями захисту. Вони розбивають оборонні побудови опонента за допомогою точних та своєчасних пасів. Історично кращі плеймейкери відзначалися вмінням ставити атакуючих гравців у найкращі позиції для взяття воріт. Їхня майстерність базується на розумінні того, куди партнер встигне добігти швидше за опікуна.</p>
+    
+    <!-- Ролі в атаці -->
+    <div class="role-grid">
+      <div class="role-card">
+        <div class="role-title">
+          <span class="role-icon">🎯</span>
+          Півзахисники
+        </div>
+        <div class="role-desc">
+          Діють у зонах з найвищою щільністю опонентів. Безперервно шукають вільний простір для виконання гострих передач. Розбивають оборонні побудови точними пасами.
+        </div>
+      </div>
+      
+      <div class="role-card">
+        <div class="role-title">
+          <span class="role-icon">⚡</span>
+          Нападники
+        </div>
+        <div class="role-desc">
+          Використовують простір для індивідуальних дій та дриблінгу. Створюють простір для партнерів за допомогою відволікаючих маневрів. Утримують м'яч спиною до воріт.
+        </div>
+      </div>
+    </div>
+    
+    <!-- Схема 1: Півзахисники -->
+    <div class="scheme-container">
+      <div class="scheme-title">Рис. 1 — Просторові коридори півзахисників</div>
+      <svg class="scheme-canvas" viewBox="0 0 700 250" preserveAspectRatio="xMidYMid meet">
+        <rect x="10" y="15" width="680" height="220" rx="6" fill="#fefefd" stroke="#2e7d32" stroke-width="1" />
+        
+        <text x="350" y="38" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#1a1e24" text-anchor="middle" font-weight="600">Півзахисники: пошук просторових коридорів</text>
+        
+        <!-- Поле -->
+        <rect x="30" y="55" width="300" height="160" fill="#d6eaf8" stroke="#2e7d32" stroke-width="1" />
+        
+        <!-- Захисники (лінія) -->
+        <circle cx="100" cy="90" r="8" fill="#2e7d32" />
+        <circle cx="160" cy="90" r="8" fill="#2e7d32" />
+        <circle cx="220" cy="90" r="8" fill="#2e7d32" />
+        <circle cx="280" cy="90" r="8" fill="#2e7d32" />
+        
+        <!-- Півзахисник -->
+        <circle cx="140" cy="140" r="10" fill="#c0392b" />
+        <text x="140" y="135" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="600">M</text>
+        
+        <!-- Просторовий коридор -->
+        <path d="M 140 140 Q 160 110 180 80" stroke="#c0392b" stroke-width="2" fill="none" stroke-dasharray="6,3" />
+        <text x="175" y="115" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#c0392b" font-style="italic">коридор</text>
+        
+        <!-- Нападник -->
+        <circle cx="180" cy="70" r="9" fill="#c0392b" opacity="0.7" />
+        <text x="180" y="65" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#c0392b" text-anchor="middle">F</text>
+        
+        <!-- Сканування -->
+        <text x="140" y="165" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#c0392b" text-anchor="middle" font-style="italic">сканує поле</text>
+        
+        <!-- Пояснення -->
+        <text x="360" y="80" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#1a1e24">• Візуально сканує майданчик</text>
+        <text x="360" y="100" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#1a1e24">• Знаходить коридори між лініями</text>
+        <text x="360" y="120" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#1a1e24">• Розбиває оборону точним пасом</text>
+        <text x="360" y="145" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#c0392b">• Розуміє, куди партнер</text>
+        <text x="370" y="163" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#c0392b">встигне добігти швидше</text>
+      </svg>
+      <div class="scheme-caption">Елітні півзахисники знаходять просторові коридори між лініями захисту для гострих передач.</div>
+    </div>
+    
+    <p>Нападники використовують ігровий простір для виконання індивідуальних дій. Вони здійснюють дриблінг на високій швидкості, атакуючи вільні зони. Іншим важливим завданням форвардів є створення простору для партнерів за допомогою відволікаючих маневрів. Здійснюючи ривок без м'яча, нападник змушує захисника слідувати за ним. Це руйнує цілісність оборонної лінії та відкриває коридори для підключення півзахисників. Гра нападника також передбачає здатність утримувати м'яч спиною до чужих воріт. Такі дії змушують захисників залишатися на своїх позиціях, що повністю нівелює спроби створити штучні офсайдні пастки.</p>
+    
+    <!-- Схема 2: Відволікаючий маневр -->
+    <div class="scheme-container">
+      <div class="scheme-title">Рис. 2 — Створення простору нападником</div>
+      <svg class="scheme-canvas" viewBox="0 0 700 220" preserveAspectRatio="xMidYMid meet">
+        <rect x="10" y="15" width="680" height="190" rx="6" fill="#fefefd" stroke="#2e7d32" stroke-width="1" />
+        
+        <!-- До ривка -->
+        <rect x="25" y="40" width="300" height="150" fill="#d6eaf8" stroke="#3a404a" stroke-width="0.8" />
+        <text x="175" y="55" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#3a404a" text-anchor="middle">ДО РИВКА</text>
+        
+        <circle cx="120" cy="110" r="8" fill="#c0392b" />
+        <text x="120" y="105" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">F</text>
+        
+        <circle cx="120" cy="140" r="8" fill="#2e7d32" />
+        <text x="120" y="135" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">D</text>
+        
+        <circle cx="200" cy="110" r="8" fill="#c0392b" opacity="0.5" />
+        <text x="200" y="105" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#c0392b" text-anchor="middle">M</text>
+        
+        <text x="335" y="115" font-family="Helvetica Neue, Arial, sans-serif" font-size="18" fill="#c0392b">→</text>
+        
+        <!-- Після ривка -->
+        <rect x="355" y="40" width="320" height="150" fill="#d6eaf8" stroke="#2e7d32" stroke-width="1.5" />
+        <text x="515" y="55" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#2e7d32" text-anchor="middle">ПІСЛЯ РИВКА</text>
+        
+        <circle cx="430" cy="90" r="8" fill="#c0392b" />
+        <text x="430" y="85" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">F</text>
+        
+        <circle cx="430" cy="115" r="8" fill="#2e7d32" />
+        <text x="430" y="110" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">D</text>
+        
+        <!-- Вектор ривка -->
+        <line x1="120" y1="110" x2="430" y2="90" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4,3" />
+        
+        <!-- Вільний простір -->
+        <ellipse cx="200" cy="110" rx="30" ry="20" fill="#2e7d32" opacity="0.1" stroke="#2e7d32" stroke-width="1" stroke-dasharray="4,3" />
+        <text x="200" y="120" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#2e7d32" text-anchor="middle">вільний</text>
+        <text x="200" y="132" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#2e7d32" text-anchor="middle">простір</text>
+        
+        <circle cx="200" cy="110" r="8" fill="#c0392b" opacity="0.7" />
+        <text x="200" y="105" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#c0392b" text-anchor="middle">M</text>
+      </svg>
+      <div class="scheme-caption">Ривок нападника без м'яча змушує захисника слідувати за ним, відкриваючи простір для півзахисника.</div>
+    </div>
+    
+    <p>На рівні шкільних занять вчитель адаптує ці ролі для учнів. Учні, які грають у нападі, отримують завдання не стояти на одному місці в очікуванні пасу. Вони повинні постійно рухатися по ширині майданчика, заплутуючи своїх опікунів. Учні, що виконують роль півзахисників, вчаться піднімати голову до прийому м'яча, щоб заздалегідь оцінити наявність вільного простору для подальшої передачі. Це формує базові навички тактичного мислення у процесі рухливої гри.</p>
+    
+    <!-- Пресинг -->
+    <h2>Пресинг як інструмент просторового домінування</h2>
+    
+    <p>Концепція просторового контролю нерозривно пов'язана з оборонною тактикою команд, особливо з механізмами застосування пресингу. Пресинг слід розуміти як скоординований командний процес просторового та часового обмеження можливостей суперника. Сучасні команди інтегрують пресинг у власну філософію та загальний ігровий стиль. Наукова розробка та практичне використання методів підготовки гравців до виконання пресингу має величезне значення для досягнення перемоги. Вся система тренувальних засобів повинна бути спрямована на вирішення цього тактичного завдання під час тривалих змагальних періодів.</p>
+    
+    <!-- Статистика -->
+    <div class="stats-highlight">
+      <div class="stats-number">1436</div>
+      <div>оборонних дій проаналізовано у 12 матчах Ліги чемпіонів УЄФА</div>
+      <div style="margin-top: 1rem; font-size: 0.9rem; color: var(--ink-light);">Відбір м'яча • Перехоплення • Винос • Блокування удару</div>
+    </div>
+    
+    <!-- Таблиця пресингу -->
+    <div class="pressing-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Тактичний елемент пресингу</th>
+            <th>Опис впливу на ігровий простір</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Командний відбір м'яча</td>
+            <td>Пряме втручання в домінантний регіон суперника</td>
+          </tr>
+          <tr>
+            <td>Перехоплення передачі</td>
+            <td>Блокування просторового коридору між гравцями</td>
+          </tr>
+          <tr>
+            <td>Блокування удару</td>
+            <td>Створення фізичної перешкоди перед зоною воріт</td>
+          </tr>
+          <tr>
+            <td>Коефіцієнт допущених пасів</td>
+            <td>Індикатор швидкості звуження простору навколо м'яча</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <p>Ефективність та інтенсивність просторового тиску вимірюється за допомогою спеціальних об'єктивних метрик. Дослідники вивчають змагальну діяльність професійних команд для встановлення показників успішності застосування пресингу. Для об'єктивного визначення інтенсивності пресингу науковці використовують коефіцієнт допущених передач м'яча на одну оборонну дію. Цей показник розраховується як відношення кількості пасів суперника до кількості захисних дій команди. Чим меншим є значення цього показника, тим вищою вважається інтенсивність тиску. Низький показник свідчить про те, що суперник встигає зробити значно менше передач до моменту втрати м'яча.</p>
+    
+    <!-- Схема 3: Стратегії пресингу -->
+    <div class="scheme-container">
+      <div class="scheme-title">Рис. 3 — Порівняння стратегій пресингу</div>
+      <svg class="scheme-canvas" viewBox="0 0 700 220" preserveAspectRatio="xMidYMid meet">
+        <!-- Тотальний пресинг -->
+        <rect x="15" y="20" width="320" height="180" rx="6" fill="#fefefd" stroke="#c0392b" stroke-width="1.5" />
+        <text x="175" y="42" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#c0392b" text-anchor="middle" font-weight="600">Тотальний пресинг</text>
+        
+        <rect x="35" y="55" width="280" height="120" fill="#d6eaf8" stroke="#2e7d32" stroke-width="0.8" />
+        
+        <circle cx="90" cy="100" r="8" fill="#c0392b" />
+        <circle cx="150" cy="90" r="8" fill="#c0392b" />
+        <circle cx="210" cy="100" r="8" fill="#c0392b" />
+        <circle cx="120" cy="130" r="8" fill="#c0392b" />
+        <circle cx="180" cy="130" r="8" fill="#c0392b" />
+        
+        <text x="175" y="165" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#c0392b" text-anchor="middle">28% пресингів біля штрафного</text>
+        <text x="175" y="180" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#c0392b" text-anchor="middle">Тиск на чужій половині</text>
+        
+        <!-- Контрпресинг -->
+        <rect x="365" y="20" width="320" height="180" rx="6" fill="#fefefd" stroke="#2e7d32" stroke-width="1.5" />
+        <text x="525" y="42" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#2e7d32" text-anchor="middle" font-weight="600">Контрпресинг</text>
+        
+        <rect x="385" y="55" width="280" height="120" fill="#d6eaf8" stroke="#2e7d32" stroke-width="0.8" />
+        
+        <circle cx="440" cy="100" r="8" fill="#2e7d32" />
+        <circle cx="500" cy="90" r="8" fill="#2e7d32" />
+        <circle cx="560" cy="100" r="8" fill="#2e7d32" />
+        <circle cx="470" cy="130" r="8" fill="#2e7d32" />
+        <circle cx="530" cy="130" r="8" fill="#2e7d32" />
+        
+        <!-- Годинник -->
+        <text x="525" y="165" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#2e7d32" text-anchor="middle">31% успішність протягом</text>
+        <text x="525" y="180" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#2e7d32" text-anchor="middle">перших 5 секунд після втрати</text>
+      </svg>
+      <div class="scheme-caption">Команди застосовують різні просторові стратегії організації тиску на суперника.</div>
+    </div>
+    
+    <p>Команди застосовують різні просторові стратегії організації тиску. Дані щодо індексу успішності пресингу підкреслюють суттєві тактичні відмінності між колективами. Наприклад, одна з досліджуваних команд здійснювала двадцять вісім відсотків своїх перших пресингів безпосередньо біля штрафного майданчика опонентів. Це свідчить про використання тотального командного тиску на чужій половині поля. Інша команда обрала іншу просторову філософію. Її гравці досягали найбільшого успіху під час застосування контрпресингу. Цей тиск здійснювався протягом перших п'яти секунд після втрати м'яча. Успішність таких дій становила тридцять один відсоток. Для порівняння, ця друга команда здійснювала лише вісім відсотків перших пресингів біля чужого штрафного майданчика.</p>
+    
+    <p>Проведені дослідження доводять, що ефективне застосування пресингу сприяє досягненню позитивних результатів. Якість пресингу безпосередньо впливає на кінцеве турнірне становище команд у своїй групі.</p>
+    
+    <!-- Номер сторінки -->
+    <div class="page-number">— 11 —</div>
+  </article>
+</body>
+</html>

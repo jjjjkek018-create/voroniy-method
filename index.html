@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Просторовий контроль · Вступ</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Додаткові стилі для схем і графіків */
+    .scheme-container {
+      margin: 2.5rem 0;
+      padding: 1.5rem;
+      background: var(--sky-light);
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+    }
+    
+    .scheme-title {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-light);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    
+    .scheme-canvas {
+      display: block;
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .scheme-caption {
+      font-size: 0.85rem;
+      color: var(--ink-light);
+      margin-top: 1rem;
+      text-align: center;
+      font-style: italic;
+    }
+    
+    .nav-top {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    
+    .nav-button {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      color: var(--ink-light);
+      padding: 0.5rem 1.2rem;
+      border: 1px solid var(--rule);
+      border-radius: 30px;
+      transition: all 0.2s ease;
+      background: transparent;
+    }
+    
+    .nav-button:hover {
+      border-color: var(--grass);
+      color: var(--grass-dark);
+      background: rgba(46, 125, 50, 0.03);
+    }
+    
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    @media (max-width: 700px) {
+      .two-column {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article>
+    <!-- Навігація -->
+    <div class="nav-top">
+      <a href="history.html" class="nav-button">Історія методу →</a>
+    </div>
+    
+    <!-- Заголовок -->
+    <h1>вступ: Теоретичні засади просторової організації в спортивних іграх</h1>
+    
+    <!-- Основний текст -->
+    <p>Командні види спорту становлять собою надзвичайно складні динамічні системи. Гравці безперервно взаємодіють між собою протягом усього ігрового часу. Ця безперервна взаємодія формує заплутані та мінливі моделі поведінки на майданчику. Просторова організація спортсменів ніколи не є випадковою чи хаотичною. Розподіл гравців на полі визначається конкретними технічними та тактичними методами. Кожна команда свідомо обирає ці методи відповідно до своєї загальної стратегії та ігрової філософії.</p>
+    
+    <p>На поведінку учасників гри впливають численні фактори, серед яких виділяються індивідуальні особливості, обмеження ігрового середовища та специфічні завдання поточного епізоду. Аналіз цих складних просторових систем вимагає використання точних та об'єктивних інструментів. Розуміння закономірностей формування просторових моделей дозволяє фахівцям глибоко характеризувати тактичну поведінку цілих команд та окремих спортсменів.</p>
+    
+    <!-- Схема 1: Фактори впливу на просторову організацію -->
+    <div class="scheme-container">
+      <div class="scheme-title">Рис. 1 — Фактори, що визначають просторову поведінку гравців</div>
+      <svg class="scheme-canvas" viewBox="0 0 600 220" preserveAspectRatio="xMidYMid meet">
+        <!-- Центральний вузол -->
+        <circle cx="300" cy="110" r="45" fill="#2e7d32" opacity="0.9" />
+        <text x="300" y="105" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="600">ПРОСТОРОВА</text>
+        <text x="300" y="120" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="600">ОРГАНІЗАЦІЯ</text>
+        
+        <!-- Фактор 1 -->
+        <circle cx="130" cy="50" r="35" fill="#d6eaf8" stroke="#2e7d32" stroke-width="1.5" />
+        <text x="130" y="45" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#1a1e24" text-anchor="middle">Індивідуальні</text>
+        <text x="130" y="58" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#1a1e24" text-anchor="middle">особливості</text>
+        
+        <!-- Фактор 2 -->
+        <circle cx="300" cy="30" r="35" fill="#d6eaf8" stroke="#2e7d32" stroke-width="1.5" />
+        <text x="300" y="25" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#1a1e24" text-anchor="middle">Обмеження</text>
+        <text x="300" y="38" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#1a1e24" text-anchor="middle">середовища</text>
+        
+        <!-- Фактор 3 -->
+        <circle cx="470" cy="50" r="35" fill="#d6eaf8" stroke="#2e7d32" stroke-width="1.5" />
+        <text x="470" y="45" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#1a1e24" text-anchor="middle">Тактичні</text>
+        <text x="470" y="58" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#1a1e24" text-anchor="middle">завдання</text>
+        
+        <!-- Стрілки -->
+        <line x1="160" y1="70" x2="260" y2="95" stroke="#2e7d32" stroke-width="1.2" marker-end="url(#arrowGreen)" />
+        <line x1="300" y1="65" x2="300" y2="80" stroke="#2e7d32" stroke-width="1.2" marker-end="url(#arrowGreen)" />
+        <line x1="440" y1="70" x2="340" y2="95" stroke="#2e7d32" stroke-width="1.2" marker-end="url(#arrowGreen)" />
+        
+        <!-- Результат -->
+        <rect x="180" y="165" width="240" height="35" rx="8" fill="#c0392b" opacity="0.9" />
+        <text x="300" y="187" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="500">Тактична поведінка команди</text>
+        <line x1="300" y1="155" x2="300" y2="165" stroke="#c0392b" stroke-width="1.5" marker-end="url(#arrowRed)" />
+        
+        <defs>
+          <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#2e7d32" />
+          </marker>
+          <marker id="arrowRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#c0392b" />
+          </marker>
+        </defs>
+      </svg>
+      <div class="scheme-caption">Взаємодія ключових факторів формує кінцеву тактичну поведінку колективу.</div>
+    </div>
+    
+    <p>Сучасні дослідники вивчають ці патерни на індивідуальному та колективному рівнях, використовуючи позиційні дані. Вивчення просторового розташування гравців набуло значної актуальності у сучасній спортивній науці. Позиційні дані допомагають аналітикам та тренерам вдосконалювати процес підготовки команд.</p>
+    
+    <!-- Двоколонковий блок: текст + графік -->
+    <div class="two-column">
+      <div>
+        <p>Навчання базовим принципам позиційної гри є надзвичайно важливим завданням для уроків фізичної культури. Школярі повинні чітко розуміти, що будь-яка спортивна гра вимагає правильного просторового мислення. Вчитель фізичної культури має адаптувати професійні тактичні концепції для дитячого сприйняття. Правильне розуміння ігрового простору допомагає учням уникати типової помилки скупчення всіх гравців навколо м'яча.</p>
+        <p>Розвиток тактичної грамотності у школярів базується на усвідомленні концепції власної зони відповідальності. Цей навчальний процес не потребує використання складної фізики чи вищої математики.</p>
+      </div>
+      <div>
+        <div class="scheme-container" style="margin: 0; padding: 1rem;">
+          <div class="scheme-title" style="margin-bottom: 0.8rem;">Рис. 2 — Рівні просторового аналізу</div>
+          <svg viewBox="0 0 300 180" preserveAspectRatio="xMidYMid meet">
+            <!-- Піраміда рівнів -->
+            <polygon points="150,20 260,70 260,130 150,160 40,130 40,70" fill="none" stroke="#2e7d32" stroke-width="1.5" />
+            
+            <!-- Рівень 3 -->
+            <polygon points="150,55 230,85 230,125 150,145 70,125 70,85" fill="#d6eaf8" stroke="#2e7d32" stroke-width="1" />
+            <text x="150" y="105" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#1a1e24" text-anchor="middle">Командний</text>
+            
+            <!-- Рівень 2 -->
+            <polygon points="150,80 200,98 200,120 150,135 100,120 100,98" fill="#e8f2fa" stroke="#2e7d32" stroke-width="1" />
+            <text x="150" y="110" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#1a1e24" text-anchor="middle">Груповий</text>
+            
+            <!-- Рівень 1 -->
+            <polygon points="150,100 175,110 175,120 150,125 125,120 125,110" fill="#fefefd" stroke="#2e7d32" stroke-width="1" />
+            <text x="150" y="117" font-family="Helvetica Neue, Arial, sans-serif" font-size="7" fill="#1a1e24" text-anchor="middle">Індивід.</text>
+            
+            <!-- Підпис -->
+            <text x="150" y="175" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#3a404a" text-anchor="middle" font-style="italic">Ієрархія тактичної підготовки</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+    
+    <p>Натомість вчитель зосереджує увагу учнів на командній взаємодії та раціональному пересуванні по майданчику. Школярі вчаться візуально оцінювати дистанцію до партнерів, суперників та бокових ліній поля. Вони також здобувають навички вибору оптимальної позиції для отримання передачі або блокування руху опонента.</p>
+    
+    <!-- Схема 3: Позиційні принципи -->
+    <div class="scheme-container">
+      <div class="scheme-title">Рис. 3 — Базові принципи позиційної гри на уроці фізичної культури</div>
+      <svg class="scheme-canvas" viewBox="0 0 600 180" preserveAspectRatio="xMidYMid meet">
+        <!-- Принцип 1 -->
+        <rect x="20" y="30" width="170" height="120" rx="6" fill="#d6eaf8" stroke="#2e7d32" stroke-width="1" />
+        <text x="105" y="55" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#1a1e24" text-anchor="middle" font-weight="600">Оцінка дистанції</text>
+        <text x="105" y="75" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#3a404a" text-anchor="middle">до партнерів</text>
+        <text x="105" y="90" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#3a404a" text-anchor="middle">до суперників</text>
+        <text x="105" y="105" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#3a404a" text-anchor="middle">до бокових ліній</text>
+        <text x="105" y="125" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#3a404a" text-anchor="middle">до лінії воріт</text>
+        
+        <!-- Стрілка -->
+        <line x1="195" y1="90" x2="225" y2="90" stroke="#c0392b" stroke-width="2" marker-end="url(#arrowRed2)" />
+        
+        <!-- Принцип 2 -->
+        <rect x="230" y="30" width="170" height="120" rx="6" fill="#d6eaf8" stroke="#2e7d32" stroke-width="1" />
+        <text x="315" y="55" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#1a1e24" text-anchor="middle" font-weight="600">Вибір позиції</text>
+        <text x="315" y="75" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#3a404a" text-anchor="middle">для отримання</text>
+        <text x="315" y="90" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#3a404a" text-anchor="middle">передачі</text>
+        <text x="315" y="110" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#3a404a" text-anchor="middle">для блокування</text>
+        <text x="315" y="125" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#3a404a" text-anchor="middle">опонента</text>
+        
+        <!-- Стрілка -->
+        <line x1="405" y1="90" x2="435" y2="90" stroke="#c0392b" stroke-width="2" marker-end="url(#arrowRed2)" />
+        
+        <!-- Результат -->
+        <rect x="440" y="30" width="140" height="120" rx="6" fill="#2e7d32" opacity="0.9" />
+        <text x="510" y="55" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="600">Результат</text>
+        <text x="510" y="75" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="rgba(255,255,255,0.9)" text-anchor="middle">раціональне</text>
+        <text x="510" y="90" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="rgba(255,255,255,0.9)" text-anchor="middle">пересування</text>
+        <text x="510" y="110" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="rgba(255,255,255,0.9)" text-anchor="middle">командна</text>
+        <text x="510" y="125" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="rgba(255,255,255,0.9)" text-anchor="middle">взаємодія</text>
+        
+        <defs>
+          <marker id="arrowRed2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#c0392b" />
+          </marker>
+        </defs>
+      </svg>
+      <div class="scheme-caption">Формування базових навичок просторової орієнтації у школярів.</div>
+    </div>
+    
+    <!-- Номер сторінки -->
+    <div class="page-number">— 1 —</div>
+  </article>
+</body>
+</html>

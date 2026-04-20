@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Просторовий контроль · Гра в нерівних складах</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .nav-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .nav-button {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      color: var(--ink-light);
+      padding: 0.5rem 1.2rem;
+      border: 1px solid var(--rule);
+      border-radius: 30px;
+      transition: all 0.2s ease;
+      background: transparent;
+    }
+    
+    .nav-button:hover {
+      border-color: var(--grass);
+      color: var(--grass-dark);
+      background: rgba(46, 125, 50, 0.03);
+    }
+    
+    .scheme-container {
+      margin: 2.5rem 0;
+      padding: 1.5rem;
+      background: var(--sky-light);
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+    }
+    
+    .scheme-title {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-light);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    
+    .scheme-canvas {
+      display: block;
+      width: 100%;
+      max-width: 750px;
+      margin: 0 auto;
+    }
+    
+    .scheme-caption {
+      font-size: 0.85rem;
+      color: var(--ink-light);
+      margin-top: 1rem;
+      text-align: center;
+      font-style: italic;
+    }
+    
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .info-box {
+      background: var(--sky-light);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--grass);
+    }
+    
+    .info-box h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-style: normal;
+      font-weight: 600;
+    }
+    
+    .tactic-card {
+      background: var(--paper);
+      padding: 1.2rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      border: 1px solid var(--rule);
+    }
+    
+    .tactic-title {
+      font-weight: 600;
+      color: var(--grass-dark);
+      margin-bottom: 0.5rem;
+    }
+    
+    .stats-highlight {
+      display: inline-block;
+      background: var(--grass);
+      color: white;
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-right: 0.5rem;
+    }
+    
+    @media (max-width: 700px) {
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article>
+    <!-- Навігація -->
+    <div class="nav-top">
+      <a href="analysis.html" class="nav-button">← Аналіз футзалу</a>
+      <div class="nav-links">
+        <a href="distribution.html" class="nav-button">Просторовий розподіл →</a>
+      </div>
+    </div>
+    
+    <!-- Заголовок -->
+    <h1>Накладання діаграм Вороного та гра в нерівних складах</h1>
+    
+    <!-- Основний текст -->
+    <p>Для створення більш комплексного опису просторової взаємодії застосовується спеціальний метод накладання діаграм двох конкуруючих команд. Цей аналітичний підхід формує нові просторові змінні для опису тактичної поведінки. Накладені діаграми демонструють зони прямого конфлікту на полі. У цих зонах домінантні регіони атакуючої та захисної команд накладаються один на одного. Саме на цих ділянках найчастіше відбуваються відбори м'яча або перехоплення передач. Фахівці використовують цей метод для оцінки ефективності захисних побудов команди.</p>
+    
+    <!-- Схема 1: Накладання діаграм -->
+    <div class="scheme-container">
+      <div class="scheme-title">Рис. 1 — Метод накладання діаграм Вороного двох команд</div>
+      <svg class="scheme-canvas" viewBox="0 0 750 300" preserveAspectRatio="xMidYMid meet">
+        <!-- Крок 1: Діаграма команди A -->
+        <rect x="10" y="20" width="230" height="260" rx="6" fill="#fefefd" stroke="#c0392b" stroke-width="1.5" />
+        <text x="125" y="42" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#c0392b" text-anchor="middle" font-weight="600">Діаграма команди A</text>
+        
+        <circle cx="70" cy="100" r="7" fill="#c0392b" />
+        <circle cx="125" cy="85" r="7" fill="#c0392b" />
+        <circle cx="180" cy="100" r="7" fill="#c0392b" />
+        <circle cx="100" cy="150" r="7" fill="#c0392b" />
+        <circle cx="150" cy="150" r="7" fill="#c0392b" />
+        
+        <polygon points="70,100 97,85 125,85 140,105 120,125" fill="#c0392b" opacity="0.06" stroke="#c0392b" stroke-width="0.8" />
+        <polygon points="125,85 152,92 180,100 152,108" fill="#c0392b" opacity="0.06" stroke="#c0392b" stroke-width="0.8" />
+        
+        <text x="255" y="150" font-family="Helvetica Neue, Arial, sans-serif" font-size="22" fill="#3a404a">+</text>
+        
+        <!-- Крок 2: Діаграма команди B -->
+        <rect x="280" y="20" width="230" height="260" rx="6" fill="#fefefd" stroke="#2e7d32" stroke-width="1.5" />
+        <text x="395" y="42" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#2e7d32" text-anchor="middle" font-weight="600">Діаграма команди B</text>
+        
+        <circle cx="330" cy="120" r="7" fill="#2e7d32" />
+        <circle cx="395" cy="100" r="7" fill="#2e7d32" />
+        <circle cx="450" cy="115" r="7" fill="#2e7d32" />
+        <circle cx="370" cy="160" r="7" fill="#2e7d32" />
+        <circle cx="430" cy="155" r="7" fill="#2e7d32" />
+        
+        <polygon points="330,120 362,100 395,100 380,130" fill="#2e7d32" opacity="0.06" stroke="#2e7d32" stroke-width="0.8" />
+        <polygon points="395,100 422,107 450,115 422,123" fill="#2e7d32" opacity="0.06" stroke="#2e7d32" stroke-width="0.8" />
+        
+        <text x="525" y="150" font-family="Helvetica Neue, Arial, sans-serif" font-size="22" fill="#c0392b">→</text>
+        
+        <!-- Крок 3: Накладання -->
+        <rect x="550" y="20" width="190" height="260" rx="6" fill="#fefefd" stroke="#c0392b" stroke-width="2" />
+        <text x="645" y="42" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#1a1e24" text-anchor="middle" font-weight="600">Накладання</text>
+        
+        <circle cx="590" cy="105" r="6" fill="#c0392b" />
+        <circle cx="635" cy="95" r="6" fill="#c0392b" />
+        <circle cx="610" cy="140" r="6" fill="#2e7d32" />
+        <circle cx="660" cy="130" r="6" fill="#2e7d32" />
+        
+        <!-- Зона конфлікту -->
+        <ellipse cx="620" cy="115" rx="35" ry="25" fill="#c0392b" opacity="0.15" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4,3" />
+        <text x="620" y="112" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#c0392b" text-anchor="middle" font-weight="600">ЗОНА</text>
+        <text x="620" y="123" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#c0392b" text-anchor="middle" font-weight="600">КОНФЛІКТУ</text>
+        
+        <text x="645" y="265" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#1a1e24" text-anchor="middle" font-style="italic">Перетин регіонів</text>
+      </svg>
+      <div class="scheme-caption">Накладання діаграм двох команд виявляє зони прямого конфлікту, де відбуваються відбори та перехоплення.</div>
+    </div>
+    
+    <p>Дослідники розглянули теоретичні моделі просторового розподілу у чітко визначеному сценарії гри. Цим сценарієм стала типова футзальна ситуація формату п'ять польових гравців проти чотирьох польових та воротаря. Дії відбувалися на ділянці поля розміром двадцять на двадцять метрів. Метою цього моделювання була генерація еталонних значень змінних, отриманих шляхом накладання діаграм. Згодом ці розраховані змінні пройшли тестування під час формального застосування до емпіричних даних. Дані були зібрані з дев'ятнадцяти спроб з ідентичними ігровими налаштуваннями.</p>
+    
+    <!-- Схема 2: Сценарій 5v4 -->
+    <div class="scheme-container">
+      <div class="scheme-title">Рис. 2 — Сценарій гри 5 на 4 на ділянці 20×20 метрів</div>
+      <svg class="scheme-canvas" viewBox="0 0 700 300" preserveAspectRatio="xMidYMid meet">
+        <!-- Ігрове поле -->
+        <rect x="50" y="30" width="600" height="240" fill="#fefefd" stroke="#2e7d32" stroke-width="2" />
+        
+        <!-- Розмітка -->
+        <text x="350" y="22" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#3a404a" text-anchor="middle">20 метрів</text>
+        <text x="38" y="155" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#3a404a" text-anchor="middle" transform="rotate(-90, 38, 155)">20 метрів</text>
+        
+        <!-- Ворота -->
+        <rect x="300" y="30" width="100" height="15" fill="none" stroke="#3a404a" stroke-width="1.5" />
+        <text x="350" y="55" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#3a404a" text-anchor="middle">Воротар</text>
+        
+        <!-- Атакуюча команда (5 гравців) -->
+        <circle cx="150" cy="120" r="8" fill="#c0392b" />
+        <circle cx="250" cy="90" r="8" fill="#c0392b" />
+        <circle cx="350" cy="100" r="8" fill="#c0392b" />
+        <circle cx="200" cy="170" r="8" fill="#c0392b" />
+        <circle cx="400" cy="150" r="8" fill="#c0392b" />
+        
+        <!-- Захисна команда (4 гравці) -->
+        <circle cx="280" cy="140" r="8" fill="#2e7d32" />
+        <circle cx="340" cy="135" r="8" fill="#2e7d32" />
+        <circle cx="310" cy="170" r="8" fill="#2e7d32" />
+        <circle cx="370" cy="165" r="8" fill="#2e7d32" />
+        
+        <!-- Компактний захисний блок -->
+        <polygon points="270,130 350,125 380,160 300,175" fill="#2e7d32" opacity="0.08" stroke="#2e7d32" stroke-width="1" stroke-dasharray="4,3" />
+        
+        <!-- Флангові зони -->
+        <ellipse cx="120" cy="140" rx="40" ry="30" fill="#c0392b" opacity="0.06" stroke="#c0392b" stroke-width="0.8" stroke-dasharray="3,3" />
+        <ellipse cx="480" cy="140" rx="40" ry="30" fill="#c0392b" opacity="0.06" stroke="#c0392b" stroke-width="0.8" stroke-dasharray="3,3" />
+        
+        <!-- Легенда -->
+        <rect x="520" y="235" width="12" height="12" fill="#c0392b" />
+        <text x="536" y="246" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#1a1e24">Атака (5)</text>
+        <rect x="580" y="235" width="12" height="12" fill="#2e7d32" />
+        <text x="596" y="246" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#1a1e24">Захист (4)</text>
+        
+        <text x="120" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#c0392b" font-style="italic">вільний</text>
+        <text x="122" y="142" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#c0392b" font-style="italic">фланг</text>
+        <text x="480" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#c0392b" font-style="italic">вільний</text>
+        <text x="482" y="142" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#c0392b" font-style="italic">фланг</text>
+      </svg>
+      <div class="scheme-caption">Атакуюча команда (5) намагається розширити простір по флангах, захисна четвірка тримається компактно в центрі.</div>
+    </div>
+    
+    <p>Результати експерименту переконливо доводять можливість виявлення низки тактичних характеристик. Ці характеристики використовуються для опису методів оборони, які застосовують гравці в умовах чисельної меншості.</p>
+    
+    <!-- Двоколонковий блок -->
+    <div class="two-column">
+      <div class="info-box">
+        <h3>Атакуюча команда (5 гравців)</h3>
+        <div class="tactic-card">
+          <div class="tactic-title">Максимізація простору</div>
+          <p>Атакуюча команда з п'яти осіб намагається максимізувати свій просторовий контроль по всій ширині майданчика.</p>
+        </div>
+        <div class="tactic-card">
+          <div class="tactic-title">Розтягування оборони</div>
+          <p>Гравці розташовуються широко, змушуючи захисників залишати компактну зону.</p>
+        </div>
+        <div class="tactic-card">
+          <div class="tactic-title">Використання флангів</div>
+          <p>Крайні гравці створюють ширину атаки, відкриваючи простір у центрі.</p>
+        </div>
+      </div>
+      
+      <div class="info-box">
+        <h3>Захисна команда (4 гравці)</h3>
+        <div class="tactic-card">
+          <div class="tactic-title">Компактність</div>
+          <p>Захисна четвірка повинна компенсувати нестачу гравця надзвичайно злагодженим та компактним розташуванням.</p>
+        </div>
+        <div class="tactic-card">
+          <div class="tactic-title">Захист центру</div>
+          <p>Вони звужують простір у центральній зоні, примушуючи суперника виконувати передачі на менш небезпечні фланги.</p>
+        </div>
+        <div class="tactic-card">
+          <div class="tactic-title">Страхування</div>
+          <p>Постійне переміщення для закриття найбільш небезпечних зон перед воротами.</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Схема 3: Педагогічне застосування -->
+    <div class="scheme-container">
+      <div class="scheme-title">Рис. 3 — Педагогічне застосування вправи у нерівних складах</div>
+      <svg class="scheme-canvas" viewBox="0 0 700 220" preserveAspectRatio="xMidYMid meet">
+        <!-- Ситуація на уроці -->
+        <rect x="20" y="20" width="660" height="180" rx="6" fill="#fefefd" stroke="#2e7d32" stroke-width="1.5" />
+        
+        <text x="350" y="45" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" fill="#1a1e24" text-anchor="middle" font-weight="600">Урок фізичної культури: гра 4 проти 3</text>
+        
+        <!-- Міні-поле -->
+        <rect x="80" y="65" width="540" height="110" fill="#d6eaf8" stroke="#2e7d32" stroke-width="1" />
+        
+        <!-- Атакуючі (4) -->
+        <circle cx="140" cy="105" r="8" fill="#c0392b" />
+        <circle cx="220" cy="90" r="8" fill="#c0392b" />
+        <circle cx="300" cy="105" r="8" fill="#c0392b" />
+        <circle cx="200" cy="140" r="8" fill="#c0392b" />
+        
+        <!-- Захисники (3) -->
+        <circle cx="420" cy="110" r="8" fill="#2e7d32" />
+        <circle cx="470" cy="100" r="8" fill="#2e7d32" />
+        <circle cx="445" cy="135" r="8" fill="#2e7d32" />
+        
+        <!-- Компактний трикутник -->
+        <polygon points="420,110 470,100 445,135" fill="#2e7d32" opacity="0.1" stroke="#2e7d32" stroke-width="1.2" stroke-dasharray="4,3" />
+        
+        <!-- Ворота -->
+        <rect x="580" y="95" width="40" height="50" fill="none" stroke="#3a404a" stroke-width="1.5" />
+        
+        <!-- Підписи -->
+        <text x="200" y="170" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#c0392b" text-anchor="middle">Атака (4 гравці)</text>
+        <text x="445" y="170" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#2e7d32" text-anchor="middle">Захист (3 гравці)</text>
+        
+        <!-- Вказівка вчителя -->
+        <text x="350" y="195" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#3a404a" text-anchor="middle" font-style="italic">Вказівка вчителя: "Тримайтеся ближче один до одного, захищайте центр!"</text>
+      </svg>
+      <div class="scheme-caption">Вчителі фізичної культури використовують формат гри у нерівних складах для тренування навичок захисту.</div>
+    </div>
+    
+    <p>Вчителі фізичної культури можуть використовувати формат гри у нерівних складах для тренування навичок захисту. Учням, які опинилися в меншості, дається вказівка триматися ближче один до одного. Вони повинні захищати центральну зону перед своїми воротами, дозволяючи супернику контролювати лише периферійні ділянки поля.</p>
+    
+    <!-- Номер сторінки -->
+    <div class="page-number">— 5 —</div>
+  </article>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Просторовий контроль · Амплуа у захисті</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .nav-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .nav-button {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      color: var(--ink-light);
+      padding: 0.5rem 1.2rem;
+      border: 1px solid var(--rule);
+      border-radius: 30px;
+      transition: all 0.2s ease;
+      background: transparent;
+    }
+    
+    .nav-button:hover {
+      border-color: var(--grass);
+      color: var(--grass-dark);
+      background: rgba(46, 125, 50, 0.03);
+    }
+    
+    .scheme-container {
+      margin: 2.5rem 0;
+      padding: 1.5rem;
+      background: var(--sky-light);
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+    }
+    
+    .scheme-title {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-light);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    
+    .scheme-canvas {
+      display: block;
+      width: 100%;
+      max-width: 750px;
+      margin: 0 auto;
+    }
+    
+    .scheme-caption {
+      font-size: 0.85rem;
+      color: var(--ink-light);
+      margin-top: 1rem;
+      text-align: center;
+      font-style: italic;
+    }
+    
+    .role-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .role-card {
+      background: var(--sky-light);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--grass);
+    }
+    
+    .role-title {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--grass-dark);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .role-icon {
+      font-size: 1.5rem;
+    }
+    
+    .role-desc {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--ink-light);
+    }
+    
+    .principle-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0 0;
+    }
+    
+    .principle-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px dashed var(--rule);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    
+    .principle-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .check-icon {
+      color: var(--grass);
+      font-weight: bold;
+    }
+    
+    .highlight-box {
+      background: var(--paper);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid var(--accent);
+      border-left-width: 4px;
+      margin: 2rem 0;
+    }
+    
+    @media (max-width: 700px) {
+      .role-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article>
+    <!-- Навігація -->
+    <div class="nav-top">
+      <a href="visualisation.html" class="nav-button">← Системи візуалізації</a>
+      <div class="nav-links">
+        <a href="dominance.html" class="nav-button">Простір у атаці →</a>
+      </div>
+    </div>
+    
+    <!-- Заголовок -->
+    <h1>Специфіка просторового контролю за ігровими амплуа: захист</h1>
+    
+    <!-- Основний текст -->
+    <p>Тактичне управління простором набуває унікальних рис залежно від позиції гравця на майданчику. Кожне ігрове амплуа передбачає виконання специфічних завдань щодо маніпулювання територією. Сучасні тренери вимагають від усіх спортсменів глибокого розуміння того, як розширювати простір для власних дій та обмежувати його для суперника.</p>
+    
+    <!-- Схема 1: Воротар -->
+    <div class="scheme-container">
+      <div class="scheme-title">Рис. 1 — Просторовий контроль воротаря</div>
+      <svg class="scheme-canvas" viewBox="0 0 700 260" preserveAspectRatio="xMidYMid meet">
+        <rect x="10" y="15" width="680" height="230" rx="6" fill="#fefefd" stroke="#2e7d32" stroke-width="1" />
+        
+        <text x="350" y="38" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#1a1e24" text-anchor="middle" font-weight="600">Воротар: управління простором за спинами захисників</text>
+        
+        <!-- Поле -->
+        <rect x="30" y="55" width="300" height="170" fill="#d6eaf8" stroke="#2e7d32" stroke-width="1" />
+        
+        <!-- Ворота -->
+        <rect x="30" y="110" width="40" height="60" fill="none" stroke="#3a404a" stroke-width="2" />
+        
+        <!-- Штрафний майданчик -->
+        <rect x="30" y="80" width="100" height="120" fill="none" stroke="#3a404a" stroke-width="0.8" stroke-dasharray="6,3" />
+        
+        <!-- Воротар -->
+        <circle cx="70" cy="140" r="10" fill="#e67e22" />
+        <text x="70" y="135" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="600">GK</text>
+        
+        <!-- Зона контролю воротаря -->
+        <ellipse cx="100" cy="140" rx="60" ry="40" fill="#e67e22" opacity="0.08" stroke="#e67e22" stroke-width="1.2" stroke-dasharray="5,3" />
+        
+        <!-- Захисники -->
+        <circle cx="150" cy="100" r="8" fill="#2e7d32" />
+        <circle cx="180" cy="130" r="8" fill="#2e7d32" />
+        <circle cx="150" cy="160" r="8" fill="#2e7d32" />
+        
+        <!-- Висока лінія захисту -->
+        <line x1="130" y1="90" x2="200" y2="170" stroke="#2e7d32" stroke-width="1" stroke-dasharray="4,3" />
+        <text x="210" y="120" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#2e7d32">висока лінія</text>
+        
+        <!-- Довга передача -->
+        <path d="M 250 60 Q 200 80 140 120" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="6,3" fill="none" />
+        <text x="220" y="75" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#c0392b" font-style="italic">довга передача</text>
+        
+        <!-- Вихід воротаря -->
+        <line x1="70" y1="140" x2="120" y2="110" stroke="#e67e22" stroke-width="1.5" marker-end="url(#arrowGK)" />
+        <text x="90" y="105" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#e67e22" font-style="italic">вихід</text>
+        
+        <defs>
+          <marker id="arrowGK" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#e67e22" />
+          </marker>
+        </defs>
+        
+        <!-- Пояснення -->
+        <text x="380" y="80" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#1a1e24">• Воротар контролює простір</text>
+        <text x="390" y="98" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#1a1e24">за спинами захисників</text>
+        <text x="380" y="120" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#1a1e24">• Читає траєкторію довгих передач</text>
+        <text x="380" y="142" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#1a1e24">• Вчасно виходить для вибивання</text>
+        <text x="380" y="164" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#1a1e24">• Дозволяє команді тримати</text>
+        <text x="390" y="182" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#1a1e24">високу лінію захисту</text>
+      </svg>
+      <div class="scheme-caption">Воротарі відіграють надзвичайно важливу роль у сучасній системі просторового контролю.</div>
+    </div>
+    
+    <p>Воротарі відіграють надзвичайно важливу роль у сучасній системі просторового контролю. Управління простором для голкіпера полягає у правильному просуванні м'яча руками або ногами. Головна мета цих дій полягає у створенні оптимальних умов для початку атаки партнерів. Елітні воротарі володіють здатністю читати траєкторію польоту довгих передач суперника. Вони повинні вчасно виходити з карного майданчика для вибивання м'яча. Ця навичка є абсолютно необхідною для тактичних схем, які передбачають високу лінію захисту. Коли воротар контролює великий простір за спинами своїх оборонців, уся команда отримує можливість зміститися ближче до центру поля, стискаючи ігрову зону опонентів.</p>
+    
+    <!-- Схема 2: Захисники -->
+    <div class="scheme-container">
+      <div class="scheme-title">Рис. 2 — Просторовий контроль захисників</div>
+      <svg class="scheme-canvas" viewBox="0 0 700 240" preserveAspectRatio="xMidYMid meet">
+        <rect x="10" y="15" width="680" height="210" rx="6" fill="#fefefd" stroke="#2e7d32" stroke-width="1" />
+        
+        <text x="350" y="38" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#1a1e24" text-anchor="middle" font-weight="600">Захисники: створення щільних оборонних ліній</text>
+        
+        <!-- Ліва частина: розриви -->
+        <rect x="25" y="55" width="300" height="150" fill="#d6eaf8" stroke="#c0392b" stroke-width="1.5" />
+        <text x="175" y="72" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#c0392b" text-anchor="middle" font-weight="600">НЕПРАВИЛЬНО: Розриви</text>
+        
+        <circle cx="80" cy="120" r="8" fill="#2e7d32" />
+        <circle cx="160" cy="110" r="8" fill="#2e7d32" />
+        <circle cx="240" cy="130" r="8" fill="#2e7d32" />
+        <circle cx="120" cy="155" r="8" fill="#2e7d32" />
+        <circle cx="200" cy="150" r="8" fill="#2e7d32" />
+        
+        <!-- Розриви -->
+        <ellipse cx="120" cy="130" rx="20" ry="12" fill="#c0392b" opacity="0.1" stroke="#c0392b" stroke-width="1" stroke-dasharray="3,3" />
+        <ellipse cx="200" cy="125" rx="20" ry="12" fill="#c0392b" opacity="0.1" stroke="#c0392b" stroke-width="1" stroke-dasharray="3,3" />
+        
+        <text x="175" y="195" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#c0392b" text-anchor="middle" font-style="italic">Розриви між гравцями</text>
+        
+        <!-- Стрілка -->
+        <text x="335" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="18" fill="#c0392b">→</text>
+        
+        <!-- Права частина: компактно -->
+        <rect x="355" y="55" width="320" height="150" fill="#d6eaf8" stroke="#2e7d32" stroke-width="2" />
+        <text x="515" y="72" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#2e7d32" text-anchor="middle" font-weight="600">ПРАВИЛЬНО: Компактність</text>
+        
+        <circle cx="420" cy="120" r="8" fill="#2e7d32" />
+        <circle cx="470" cy="115" r="8" fill="#2e7d32" />
+        <circle cx="520" cy="120" r="8" fill="#2e7d32" />
+        <circle cx="445" cy="145" r="8" fill="#2e7d32" />
+        <circle cx="495" cy="145" r="8" fill="#2e7d32" />
+        
+        <!-- Щільна лінія -->
+        <polygon points="410,115 530,115 530,155 410,155" fill="#2e7d32" opacity="0.1" stroke="#2e7d32" stroke-width="1.5" stroke-dasharray="4,3" />
+        
+        <text x="515" y="195" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#2e7d32" text-anchor="middle" font-style="italic">Герметична захисна лінія</text>
+      </svg>
+      <div class="scheme-caption">Захисники виконують функцію управління простором шляхом створення надзвичайно щільних оборонних ліній.</div>
+    </div>
+    
+    <p>Захисники виконують функцію управління простором шляхом створення надзвичайно щільних оборонних ліній. Їхнє завдання полягає у ліквідації розривів між власними позиціями. Створення таких герметичних захисних ліній позбавляє нападників можливості отримати м'яч у зручній позиції. Захисники повинні діяти максимально синхронно. Спільне переміщення всієї лінії оборони є інструментом просторового маніпулювання.</p>
+    
+    <!-- Ролі -->
+    <div class="role-grid">
+      <div class="role-card">
+        <div class="role-title">
+          <span class="role-icon">🧤</span>
+          Воротар
+        </div>
+        <div class="role-desc">
+          Управління простором полягає у правильному просуванні м'яча та читанні траєкторії довгих передач. Елітні голкіпери контролюють великий простір за спинами захисників.
+        </div>
+        <ul class="principle-list">
+          <li><span class="check-icon">✓</span> Вихід з карного майданчика</li>
+          <li><span class="check-icon">✓</span> Читання траєкторії м'яча</li>
+          <li><span class="check-icon">✓</span> Створення умов для атаки</li>
+        </ul>
+      </div>
+      
+      <div class="role-card">
+        <div class="role-title">
+          <span class="role-icon">🛡️</span>
+          Захисники
+        </div>
+        <div class="role-desc">
+          Ліквідація розривів між власними позиціями. Синхронне переміщення всієї лінії оборони для створення штучного положення поза грою.
+        </div>
+        <ul class="principle-list">
+          <li><span class="check-icon">✓</span> Щільні оборонні лінії</li>
+          <li><span class="check-icon">✓</span> Синхронний крок вперед</li>
+          <li><span class="check-icon">✓</span> Страхування партнерів</li>
+        </ul>
+      </div>
+    </div>
+    
+    <p>Наприклад, штучне створення положення поза грою базується на синхронному кроці вперед усієї лінії. Це залишає нападників у зоні, де їхній територіальний контроль стає нелегітимним згідно з правилами гри.</p>
+    
+    <!-- Схема 3: Офсайдна пастка -->
+    <div class="scheme-container">
+      <div class="scheme-title">Рис. 3 — Створення штучного положення поза грою</div>
+      <svg class="scheme-canvas" viewBox="0 0 650 200" preserveAspectRatio="xMidYMid meet">
+        <rect x="10" y="15" width="630" height="170" rx="6" fill="#fefefd" stroke="#2e7d32" stroke-width="1" />
+        
+        <text x="325" y="38" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#1a1e24" text-anchor="middle" font-weight="600">Синхронний крок захисників — офсайдна пастка</text>
+        
+        <!-- Поле -->
+        <rect x="30" y="55" width="280" height="110" fill="#d6eaf8" stroke="#2e7d32" stroke-width="1" />
+        
+        <!-- Лінія офсайду -->
+        <line x1="150" y1="55" x2="150" y2="165" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="6,3" />
+        <text x="140" y="50" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#c0392b">офсайд</text>
+        
+        <!-- Захисники (рухаються вперед) -->
+        <circle cx="160" cy="90" r="7" fill="#2e7d32" />
+        <line x1="160" y1="90" x2="160" y2="75" stroke="#2e7d32" stroke-width="1.5" marker-end="url(#arrowUp1)" />
+        
+        <circle cx="160" cy="115" r="7" fill="#2e7d32" />
+        <line x1="160" y1="115" x2="160" y2="100" stroke="#2e7d32" stroke-width="1.5" marker-end="url(#arrowUp1)" />
+        
+        <circle cx="160" cy="140" r="7" fill="#2e7d32" />
+        <line x1="160" y1="140" x2="160" y2="125" stroke="#2e7d32" stroke-width="1.5" marker-end="url(#arrowUp1)" />
+        
+        <!-- Нападники (залишилися за лінією) -->
+        <circle cx="120" cy="100" r="8" fill="#c0392b" opacity="0.6" />
+        <text x="120" y="95" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#c0392b" text-anchor="middle">A1</text>
+        
+        <circle cx="130" cy="130" r="8" fill="#c0392b" opacity="0.6" />
+        <text x="130" y="125" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#c0392b" text-anchor="middle">A2</text>
+        
+        <defs>
+          <marker id="arrowUp1" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+            <polygon points="0 0, 6 2.5, 0 5" fill="#2e7d32" />
+          </marker>
+        </defs>
+        
+        <!-- Пояснення -->
+        <text x="350" y="90" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#1a1e24">• Уся лінія захисту робить</text>
+        <text x="360" y="108" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#1a1e24">синхронний крок вперед</text>
+        <text x="350" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#c0392b">• Нападники залишаються</text>
+        <text x="360" y="148" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#c0392b">за лінією офсайду</text>
+        <text x="350" y="170" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#2e7d32">• Контроль стає нелегітимним</text>
+      </svg>
+      <div class="scheme-caption">Штучне створення положення поза грою базується на синхронному кроці вперед усієї лінії.</div>
+    </div>
+    
+    <p>Вчителі фізичної культури тренують ці навички через вправи на страхування. Учні вчаться зміщуватися в бік м'яча синхронно, зберігаючи рівну дистанцію між собою. На уроках фізкультури вчитель заохочує учнів, які грають у воротах, не стояти на лінії, а активно підказувати партнерам та контролювати найближчий простір.</p>
+    
+    <!-- Номер сторінки -->
+    <div class="page-number">— 10 —</div>
+  </article>
+</body>
+</html>

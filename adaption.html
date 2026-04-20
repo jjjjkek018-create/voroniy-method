@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Просторовий контроль · Адаптація для уроків</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .nav-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .nav-button {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      color: var(--ink-light);
+      padding: 0.5rem 1.2rem;
+      border: 1px solid var(--rule);
+      border-radius: 30px;
+      transition: all 0.2s ease;
+      background: transparent;
+    }
+    
+    .nav-button:hover {
+      border-color: var(--grass);
+      color: var(--grass-dark);
+      background: rgba(46, 125, 50, 0.03);
+    }
+    
+    .scheme-container {
+      margin: 2.5rem 0;
+      padding: 1.5rem;
+      background: var(--sky-light);
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+    }
+    
+    .scheme-title {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-light);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    
+    .scheme-canvas {
+      display: block;
+      width: 100%;
+      max-width: 750px;
+      margin: 0 auto;
+    }
+    
+    .scheme-caption {
+      font-size: 0.85rem;
+      color: var(--ink-light);
+      margin-top: 1rem;
+      text-align: center;
+      font-style: italic;
+    }
+    
+    .principle-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .principle-card {
+      background: var(--sky-light);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-bottom: 3px solid var(--grass);
+      text-align: center;
+    }
+    
+    .principle-number {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--grass);
+      opacity: 0.5;
+      margin-bottom: 0.5rem;
+    }
+    
+    .principle-title {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      color: var(--grass-dark);
+    }
+    
+    .principle-desc {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: var(--ink-light);
+    }
+    
+    .advice-box {
+      background: var(--paper);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid var(--accent);
+      border-left-width: 4px;
+      margin: 2rem 0;
+    }
+    
+    .advice-box h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-style: normal;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    
+    @media (max-width: 700px) {
+      .principle-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article>
+    <!-- Навігація -->
+    <div class="nav-top">
+      <a href="dominance.html" class="nav-button">← Амплуа та пресинг</a>
+      <div class="nav-links">
+        <a href="case-studies.html" class="nav-button">Кейс-стаді →</a>
+      </div>
+    </div>
+    
+    <!-- Заголовок -->
+    <h1>Адаптація просторових концепцій для уроків фізичної культури</h1>
+    
+    <!-- Основний текст -->
+    <p>Розуміння засад просторового контролю є критично важливим для організації навчального процесу з фізичної культури. Вчителі повинні адаптувати складні тактичні принципи гри для школярів або гравців аматорських команд. Діти шкільного віку цілком здатні розуміти різні елементи ігрової тактики, якщо вони пояснені доступною мовою. Викладач не повинен намагатися організовувати складні схеми пресингу або багатокрокові комбінації. Його завдання полягає у поясненні базових принципів, які школярі можуть зрозуміти та почати застосовувати як єдина команда.</p>
+    
+    <!-- Три принципи -->
+    <div class="principle-grid">
+      <div class="principle-card">
+        <div class="principle-number">1</div>
+        <div class="principle-title">Переміщення навколо суперника</div>
+        <div class="principle-desc">Учні вчаться обходити опонента, використовуючи вільний простір на майданчику.</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-number">2</div>
+        <div class="principle-title">Передача через лінію</div>
+        <div class="principle-desc">Школярі освоюють пас крізь захисну лінію суперника у вільну зону.</div>
+      </div>
+      <div class="principle-card">
+        <div class="principle-number">3</div>
+        <div class="principle-title">Пас над захисниками</div>
+        <div class="principle-desc">Учні вчаться виконувати передачі поверх голів опонентів на відкритого партнера.</div>
+      </div>
+    </div>
+    
+    <p>Контроль позицій та культура виконання передач є фундаментом гри на будь-якому рівні підготовки. Вчитель пояснює учням, що гра базується на трьох основних просторових векторах: переміщення навколо суперника, передача через лінію суперника та пас над захисниками.</p>
+    
+    <!-- Схема 1: Три вектори -->
+    <div class="scheme-container">
+      <div class="scheme-title">Рис. 1 — Три просторові вектори гри</div>
+      <svg class="scheme-canvas" viewBox="0 0 700 220" preserveAspectRatio="xMidYMid meet">
+        <rect x="10" y="15" width="680" height="190" rx="6" fill="#fefefd" stroke="#2e7d32" stroke-width="1" />
+        
+        <text x="350" y="38" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#1a1e24" text-anchor="middle" font-weight="600">Три просторові вектори в навчанні школярів</text>
+        
+        <!-- Вектор 1: Навколо -->
+        <rect x="25" y="55" width="200" height="130" rx="6" fill="#d6eaf8" stroke="#2e7d32" stroke-width="1" />
+        <text x="125" y="75" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#2e7d32" text-anchor="middle" font-weight="600">НАВКОЛО</text>
+        
+        <circle cx="90" cy="120" r="8" fill="#2e7d32" />
+        <text x="90" y="115" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">D</text>
+        <circle cx="140" cy="110" r="7" fill="#c0392b" />
+        <path d="M 140 110 Q 160 130 140 145 Q 120 130 140 110" stroke="#c0392b" stroke-width="1.5" fill="none" stroke-dasharray="4,3" />
+        <text x="125" y="155" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#c0392b" text-anchor="middle">обхід</text>
+        
+        <!-- Вектор 2: Через -->
+        <rect x="250" y="55" width="200" height="130" rx="6" fill="#e8f2fa" stroke="#c0392b" stroke-width="1" />
+        <text x="350" y="75" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#c0392b" text-anchor="middle" font-weight="600">ЧЕРЕЗ</text>
+        
+        <circle cx="290" cy="110" r="8" fill="#2e7d32" />
+        <circle cx="340" cy="110" r="8" fill="#2e7d32" />
+        <circle cx="315" cy="135" r="7" fill="#c0392b" />
+        <line x1="315" y1="135" x2="315" y2="90" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4,3" />
+        <text x="315" y="155" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#c0392b" text-anchor="middle">пас крізь лінію</text>
+        
+        <!-- Вектор 3: Над -->
+        <rect x="475" y="55" width="200" height="130" rx="6" fill="#d6eaf8" stroke="#2e7d32" stroke-width="1" />
+        <text x="575" y="75" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#2e7d32" text-anchor="middle" font-weight="600">НАД</text>
+        
+        <circle cx="520" cy="110" r="8" fill="#2e7d32" />
+        <circle cx="560" cy="110" r="8" fill="#2e7d32" />
+        <circle cx="540" cy="130" r="7" fill="#c0392b" />
+        <path d="M 520 100 Q 540 80 560 100" stroke="#2e7d32" stroke-width="1.5" fill="none" stroke-dasharray="4,3" />
+        <text x="540" y="155" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#2e7d32" text-anchor="middle">пас поверху</text>
+      </svg>
+      <div class="scheme-caption">Гра базується на трьох основних просторових векторах: навколо, через та над суперником.</div>
+    </div>
+    
+    <p>Учні повинні навчитися розривати лінії захисту шляхом виконання швидких передач м'яча вперед. При цьому школяр має самостійно оцінювати ситуацію та віддавати пас на того партнера, чия зона є найбільш відкритою у даний момент. Цей процес вибору найкращого варіанту стимулює розвиток просторового аналізу у дитини.</p>
+    
+    <!-- Схема 2: Зміна флангу -->
+    <div class="scheme-container">
+      <div class="scheme-title">Рис. 2 — Зміна напрямку атаки (переведення на вільний фланг)</div>
+      <svg class="scheme-canvas" viewBox="0 0 700 240" preserveAspectRatio="xMidYMid meet">
+        <rect x="10" y="15" width="680" height="210" rx="6" fill="#fefefd" stroke="#2e7d32" stroke-width="1" />
+        
+        <text x="350" y="38" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#1a1e24" text-anchor="middle" font-weight="600">Переведення м'яча на вільний фланг</text>
+        
+        <!-- Поле -->
+        <rect x="30" y="55" width="640" height="150" fill="#d6eaf8" stroke="#2e7d32" stroke-width="1" />
+        
+        <!-- Центральна лінія -->
+        <line x1="350" y1="55" x2="350" y2="205" stroke="#3a404a" stroke-width="0.8" stroke-dasharray="6,3" />
+        
+        <!-- Лівий фланг (скупчення) -->
+        <circle cx="120" cy="100" r="8" fill="#c0392b" />
+        <circle cx="160" cy="110" r="8" fill="#c0392b" />
+        <circle cx="100" cy="130" r="8" fill="#2e7d32" />
+        <circle cx="140" cy="140" r="8" fill="#2e7d32" />
+        <circle cx="180" cy="130" r="8" fill="#2e7d32" />
+        
+        <text x="140" y="85" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#c0392b" text-anchor="middle">скупчення</text>
+        <text x="140" y="97" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#c0392b" text-anchor="middle">гравців</text>
+        
+        <!-- Гравець з м'ячем -->
+        <circle cx="200" cy="120" r="9" fill="#c0392b" />
+        <text x="200" y="115" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">P</text>
+        
+        <!-- Довга передача -->
+        <line x1="209" y1="120" x2="520" y2="90" stroke="#2e7d32" stroke-width="2" stroke-dasharray="8,4" />
+        <text x="360" y="98" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#2e7d32" font-style="italic">довга передача</text>
+        
+        <!-- Правий фланг (вільний) -->
+        <ellipse cx="560" cy="90" rx="50" ry="30" fill="#2e7d32" opacity="0.1" stroke="#2e7d32" stroke-width="1.2" stroke-dasharray="5,3" />
+        <text x="560" y="75" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#2e7d32" text-anchor="middle">вільний</text>
+        <text x="560" y="87" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#2e7d32" text-anchor="middle">простір</text>
+        
+        <!-- Відкритий гравець -->
+        <circle cx="540" cy="90" r="8" fill="#c0392b" opacity="0.7" />
+        <text x="540" y="85" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#c0392b" text-anchor="middle">F</text>
+        
+        <text x="350" y="200" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#3a404a" text-anchor="350" font-style="italic">Коли суперники скупчуються на одній стороні — протилежна залишається вільною</text>
+      </svg>
+      <div class="scheme-caption">Зміна напрямку розвитку атаки є фундаментальним навиком — переведення на вільний фланг.</div>
+    </div>
+    
+    <p>Зміна напрямку розвитку атаки є ще одним фундаментальним навиком. Вчитель пояснює, що коли суперники скупчуються на одній стороні майданчика, протилежна сторона залишається вільною. Переведення м'яча на вільний фланг дозволяє команді швидко захопити неконтрольований простір.</p>
+    
+    <!-- Схема 3: Рухливі ігри -->
+    <div class="scheme-container">
+      <div class="scheme-title">Рис. 3 — Рухливі ігри на зменшених ділянках</div>
+      <svg class="scheme-canvas" viewBox="0 0 700 200" preserveAspectRatio="xMidYMid meet">
+        <rect x="10" y="15" width="680" height="170" rx="6" fill="#fefefd" stroke="#2e7d32" stroke-width="1" />
+        
+        <text x="350" y="38" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#1a1e24" text-anchor="middle" font-weight="600">Тренування на зменшених ділянках майданчика</text>
+        
+        <!-- Мале поле 1 -->
+        <rect x="30" y="55" width="180" height="110" fill="#d6eaf8" stroke="#2e7d32" stroke-width="1.5" />
+        <text x="120" y="72" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#2e7d32" text-anchor="middle">3v3</text>
+        
+        <circle cx="70" cy="105" r="6" fill="#c0392b" />
+        <circle cx="110" cy="95" r="6" fill="#c0392b" />
+        <circle cx="90" cy="125" r="6" fill="#c0392b" />
+        <circle cx="130" cy="115" r="6" fill="#2e7d32" />
+        <circle cx="150" cy="130" r="6" fill="#2e7d32" />
+        <circle cx="170" cy="105" r="6" fill="#2e7d32" />
+        
+        <!-- Мале поле 2 -->
+        <rect x="260" y="55" width="180" height="110" fill="#d6eaf8" stroke="#2e7d32" stroke-width="1.5" />
+        <text x="350" y="72" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#2e7d32" text-anchor="middle">4v4 з нейтральними</text>
+        
+        <circle cx="300" cy="100" r="6" fill="#c0392b" />
+        <circle cx="340" cy="95" r="6" fill="#c0392b" />
+        <circle cx="320" cy="120" r="6" fill="#c0392b" />
+        <circle cx="370" cy="110" r="6" fill="#2e7d32" />
+        <circle cx="390" cy="125" r="6" fill="#2e7d32" />
+        <circle cx="310" cy="135" r="5" fill="#e67e22" />
+        <circle cx="380" cy="90" r="5" fill="#e67e22" />
+        
+        <!-- Мале поле 3 -->
+        <rect x="490" y="55" width="180" height="110" fill="#d6eaf8" stroke="#2e7d32" stroke-width="1.5" />
+        <text x="580" y="72" font-family="Helvetica Neue, Arial, sans-serif" font-size="8" fill="#2e7d32" text-anchor="middle">2v2 на одні ворота</text>
+        
+        <rect x="640" y="80" width="20" height="40" fill="none" stroke="#3a404a" stroke-width="1.5" />
+        <circle cx="540" cy="100" r="6" fill="#c0392b" />
+        <circle cx="580" cy="110" r="6" fill="#c0392b" />
+        <circle cx="560" cy="120" r="6" fill="#2e7d32" />
+        <circle cx="600" cy="105" r="6" fill="#2e7d32" />
+        
+        <text x="350" y="178" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#3a404a" text-anchor="middle" font-style="italic">Обмежений простір змушує швидше приймати рішення та шукати відкриті зони</text>
+      </svg>
+      <div class="scheme-caption">Всі тактичні речі можна ефективно натренувати під час уроків на зменшених ділянках.</div>
+    </div>
+    
+    <p>Всі ці тактичні речі можна ефективно натренувати під час уроків. Для цього вчителі використовують рухливі ігри на зменшених ділянках майданчика. Умови обмеженого простору змушують учнів швидше приймати рішення та шукати відкриті зони для отримання пасу.</p>
+    
+    <!-- Поради вчителям -->
+    <div class="advice-box">
+      <h3>📋 Методичні рекомендації для вчителів</h3>
+      <p>Для вдосконалення власної методики викладання вчителям рекомендується спостерігати за командами, які демонструють високий рівень гри. Аналіз дій кращих колективів допомагає зрозуміти практичне застосування просторових принципів. Спілкування з тренерами успішних команд є чудовим джерелом нових знань щодо організації простору на майданчику. Обмін досвідом під час турнірів дозволяє педагогам знаходити нові вправи для розвитку тактичного мислення у своїх учнів. Професійні тренери завжди позитивно реагують на прояви поваги до їхнього стилю гри та з радістю діляться власними методичними напрацюваннями.</p>
+    </div>
+    
+    <!-- Номер сторінки -->
+    <div class="page-number">— 12 —</div>
+  </article>
+</body>
+</html>

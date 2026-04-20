@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Просторовий контроль · Технології аналізу</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .nav-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .nav-button {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      color: var(--ink-light);
+      padding: 0.5rem 1.2rem;
+      border: 1px solid var(--rule);
+      border-radius: 30px;
+      transition: all 0.2s ease;
+      background: transparent;
+    }
+    
+    .nav-button:hover {
+      border-color: var(--grass);
+      color: var(--grass-dark);
+      background: rgba(46, 125, 50, 0.03);
+    }
+    
+    .scheme-container {
+      margin: 2.5rem 0;
+      padding: 1.5rem;
+      background: var(--sky-light);
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+    }
+    
+    .scheme-title {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-light);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    
+    .scheme-canvas {
+      display: block;
+      width: 100%;
+      max-width: 750px;
+      margin: 0 auto;
+    }
+    
+    .scheme-caption {
+      font-size: 0.85rem;
+      color: var(--ink-light);
+      margin-top: 1rem;
+      text-align: center;
+      font-style: italic;
+    }
+    
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .tech-card {
+      background: var(--sky-light);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-bottom: 3px solid var(--grass);
+    }
+    
+    .tech-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .tech-name {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--grass-dark);
+    }
+    
+    .tech-provider {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    
+    .tech-desc {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--ink-light);
+      margin-bottom: 1rem;
+    }
+    
+    .tech-sports {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+    
+    .sport-tag {
+      background: var(--grass);
+      color: white;
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+    }
+    
+    .tracking-methods {
+      margin: 2.5rem 0;
+    }
+    
+    .method-card {
+      display: flex;
+      gap: 1.5rem;
+      background: var(--paper);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      margin-bottom: 1.5rem;
+    }
+    
+    .method-icon {
+      font-size: 2.5rem;
+      min-width: 60px;
+      text-align: center;
+    }
+    
+    .method-content h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-style: normal;
+      font-weight: 600;
+    }
+    
+    .method-content p {
+      margin-bottom: 0.5rem;
+    }
+    
+    .accuracy-badge {
+      display: inline-block;
+      background: var(--grass);
+      color: white;
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      margin-right: 0.5rem;
+    }
+    
+    .data-table {
+      margin: 2rem 0;
+    }
+    
+    .insight-box {
+      background: var(--paper);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid var(--accent);
+      border-left-width: 4px;
+      margin: 2rem 0;
+    }
+    
+    .open-source-badge {
+      background: #27ae60;
+      color: white;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      margin-left: 0.5rem;
+    }
+    
+    @media (max-width: 700px) {
+      .tech-grid {
+        grid-template-columns: 1fr;
+      }
+      .method-card {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article>
+    <!-- Навігація -->
+    <div class="nav-top">
+      <a href="sports-comparison.html" class="nav-button">← Порівняння видів спорту</a>
+      <div class="nav-links">
+        <a href="conclusions.html" class="nav-button">Підсумки →</a>
+      </div>
+    </div>
+    
+    <!-- Заголовок -->
+    <h1>Технології збору та аналізу просторових даних</h1>
+    
+    <!-- Основний текст -->
+    <p>Сучасний просторовий аналіз у спорті неможливий без передових технологій збору даних. Від оптичних систем відстеження до носимих GPS-трекерів — кожна технологія має свої переваги, обмеження та сфери застосування. Нижче представлено огляд основних технологічних рішень, що використовуються професійними клубами та аналітичними центрами.</p>
+    
+    <!-- Комерційні платформи -->
+    <h2>Комерційні аналітичні платформи</h2>
+    
+    <div class="tech-grid">
+      <div class="tech-card">
+        <div class="tech-name">Second Spectrum</div>
+        <div class="tech-provider">Genius Sports</div>
+        <div class="tech-desc">Офіційний постачальник даних відстеження для НБА, АПЛ та МЛС. Використовує оптичні системи з машинним навчанням для відстеження 25+ точок на тілі кожного гравця з частотою 25 Гц.</div>
+        <div class="tech-sports">
+          <span class="sport-tag">🏀 НБА</span>
+          <span class="sport-tag">⚽ АПЛ</span>
+          <span class="sport-tag">⚽ МЛС</span>
+        </div>
+      </div>
+      
+      <div class="tech-card">
+        <div class="tech-name">StatsBomb</div>
+        <div class="tech-provider">StatsBomb (Hudl)</div>
+        <div class="tech-desc">Платформа подієвих даних та відстеження. Відома своїми моделями xG (очікуваних голів) та xT (очікуваної загрози). Надає безкоштовний доступ до історичних даних для дослідників.</div>
+        <div class="tech-sports">
+          <span class="sport-tag">⚽ Футбол</span>
+          <span class="sport-tag">🏈 НФЛ</span>
+        </div>
+      </div>
+      
+      <div class="tech-card">
+        <div class="tech-name">Hudl Sportscode</div>
+        <div class="tech-provider">Hudl</div>
+        <div class="tech-desc">Індустріальний стандарт для відеоаналізу. Дозволяє тренерам розмічати ключові моменти, створювати нарізки та обмінюватися ними. Інтегрується з даними відстеження.</div>
+        <div class="tech-sports">
+          <span class="sport-tag">🏈 Американський футбол</span>
+          <span class="sport-tag">🏀 Баскетбол</span>
+          <span class="sport-tag">⚽ Футбол</span>
+        </div>
+      </div>
+      
+      <div class="tech-card">
+        <div class="tech-name">Catapult Sports</div>
+        <div class="tech-provider">Catapult Group</div>
+        <div class="tech-desc">Світовий лідер у носимих GPS-трекерах. Понад 3800 команд у 40+ видах спорту використовують їхні жилети для моніторингу фізичного навантаження та позиціонування.</div>
+        <div class="tech-sports">
+          <span class="sport-tag">⚽ Футбол</span>
+          <span class="sport-tag">🏉 Регбі</span>
+          <span class="sport-tag">🏑 Хокей на траві</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Відкриті дані -->
+    <h2>Відкриті набори даних для досліджень</h2>
+    
+    <div class="tech-grid">
+      <div class="tech-card">
+        <div class="tech-name">Metrica Sports <span class="open-source-badge">OPEN SOURCE</span></div>
+        <div class="tech-provider">Metrica Sports</div>
+        <div class="tech-desc">Найбільший відкритий набір даних відстеження футбольних матчів. Містить координати всіх гравців та м'яча з частотою 25 Гц для трьох повних матчів. Ідеально для академічних досліджень.</div>
+        <div class="tech-sports">
+          <span class="sport-tag">⚽ Футбол</span>
+          <span class="sport-tag">📚 Дослідження</span>
+        </div>
+      </div>
+      
+      <div class="tech-card">
+        <div class="tech-name">StatsBomb Open Data <span class="open-source-badge">OPEN SOURCE</span></div>
+        <div class="tech-provider">StatsBomb</div>
+        <div class="tech-desc">Безкоштовний доступ до подієвих даних (паси, удари, відбори) для сотень матчів з різних турнірів, включаючи Лігу чемпіонів УЄФА та чемпіонати світу.</div>
+        <div class="tech-sports">
+          <span class="sport-tag">⚽ Футбол</span>
+          <span class="sport-tag">📚 Дослідження</span>
+        </div>
+      </div>
+      
+      <div class="tech-card">
+        <div class="tech-name">NBA API <span class="open-source-badge">OPEN SOURCE</span></div>
+        <div class="tech-provider">NBA</div>
+        <div class="tech-desc">Офіційний API з детальною статистикою НБА. Містить дані про кидки (включаючи координати), передачі, підбирання та багато іншого. Широко використовується аналітиками та фанатами.</div>
+        <div class="tech-sports">
+          <span class="sport-tag">🏀 Баскетбол</span>
+          <span class="sport-tag">📚 Дослідження</span>
+        </div>
+      </div>
+      
+      <div class="tech-card">
+        <div class="tech-name">NHL API <span class="open-source-badge">OPEN SOURCE</span></div>
+        <div class="tech-provider">NHL</div>
+        <div class="tech-desc">Неофіційний, але стабільний API з даними НХЛ. Містить координати кидків, події на льоду та статистику гравців. Використовується для створення хокейних аналітичних моделей.</div>
+        <div class="tech-sports">
+          <span class="sport-tag">🏒 Хокей</span>
+          <span class="sport-tag">📚 Дослідження</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Методи відстеження -->
+    <h2>Методи збору позиційних даних</h2>
+    
+    <div class="tracking-methods">
+      <div class="method-card">
+        <div class="method-icon">📷</div>
+        <div class="method-content">
+          <h3>Оптичне відстеження (Optical Tracking)</h3>
+          <p>Система з 10-16 камер, розташованих по периметру стадіону, відстежує рух усіх об'єктів на полі. Комп'ютерний зір та машинне навчання ідентифікують гравців, м'яч та суддів.</p>
+          <p><span class="accuracy-badge">Точність: ±5 см</span> <span class="accuracy-badge">Частота: 25 Гц</span></p>
+          <p><strong>Переваги:</strong> Не потребує носимих пристроїв, висока точність позиціонування.<br>
+          <strong>Недоліки:</strong> Дороге обладнання, проблеми з оклюзією (гравці перекривають один одного).</p>
+        </div>
+      </div>
+      
+      <div class="method-card">
+        <div class="method-icon">📡</div>
+        <div class="method-content">
+          <h3>GPS / LPS відстеження</h3>
+          <p>Гравці носять легкі жилети з GPS-трекерами (на відкритих стадіонах) або LPS-трекерами (Local Positioning System у закритих приміщеннях). Система фіксує позицію, швидкість, прискорення та пройдену дистанцію.</p>
+          <p><span class="accuracy-badge">Точність: ±50 см (GPS) / ±15 см (LPS)</span> <span class="accuracy-badge">Частота: 10-18 Гц</span></p>
+          <p><strong>Переваги:</strong> Дані про фізичне навантаження, працює на тренуваннях.<br>
+          <strong>Недоліки:</strong> Нижча точність позиціонування, потребує носіння обладнання.</p>
+        </div>
+      </div>
+      
+      <div class="method-card">
+        <div class="method-icon">📡</div>
+        <div class="method-content">
+          <h3>Радіочастотне відстеження (RFID / UWB)</h3>
+          <p>На гравцях та м'ячі закріплені мініатюрні радіо-чіпи. Антени по периметру поля тріангулюють їхнє положення з високою точністю. Технологія Ultra-Wideband (UWB) забезпечує сантиметрову точність.</p>
+          <p><span class="accuracy-badge">Точність: ±10 см</span> <span class="accuracy-badge">Частота: 20-50 Гц</span></p>
+          <p><strong>Переваги:</strong> Висока точність, працює в приміщеннях, менше проблем з оклюзією.<br>
+          <strong>Недоліки:</strong> Потребує встановлення антен, чіпи на м'ячі та гравцях.</p>
+        </div>
+      </div>
+      
+      <div class="method-card">
+        <div class="method-icon">🎥</div>
+        <div class="method-content">
+          <h3>Ручне кодування подій</h3>
+          <p>Аналітики вручну розмічають ключові події матчу: паси, удари, відбори, перехоплення. Хоча це не дає повних координат, подієві дані є основою для багатьох моделей (xG, xT, PPDA).</p>
+          <p><span class="accuracy-badge">Суб'єктивна</span> <span class="accuracy-badge">Частота: події</span></p>
+          <p><strong>Переваги:</strong> Багатий контекст, історичні дані доступні для багатьох ліг.<br>
+          <strong>Недоліки:</strong> Трудомістке, суб'єктивне, не дає повної просторової картини.</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Схема: Порівняння методів -->
+    <div class="scheme-container">
+      <div class="scheme-title">Порівняння методів збору даних за точністю та вартістю</div>
+      <svg class="scheme-canvas" viewBox="0 0 700 300" preserveAspectRatio="xMidYMid meet">
+        <!-- Осі -->
+        <line x1="80" y1="250" x2="650" y2="250" stroke="#3a404a" stroke-width="1.5" />
+        <line x1="80" y1="250" x2="80" y2="30" stroke="#3a404a" stroke-width="1.5" />
+        
+        <!-- Підписи осей -->
+        <text x="365" y="280" font-family="Helvetica Neue" font-size="10" fill="#3a404a" text-anchor="middle">Вартість впровадження →</text>
+        <text x="30" y="145" font-family="Helvetica Neue" font-size="10" fill="#3a404a" text-anchor="middle" transform="rotate(-90, 30, 145)">Точність позиціонування →</text>
+        
+        <!-- Ручне кодування -->
+        <circle cx="150" cy="230" r="8" fill="#e67e22" />
+        <text x="150" y="220" font-family="Helvetica Neue" font-size="9" fill="#e67e22" text-anchor="middle">Ручне</text>
+        <text x="150" y="270" font-family="Helvetica Neue" font-size="8" fill="#3a404a" text-anchor="middle">~$0 (час)</text>
+        
+        <!-- GPS -->
+        <circle cx="280" cy="190" r="8" fill="#3498db" />
+        <text x="280" y="180" font-family="Helvetica Neue" font-size="9" fill="#3498db" text-anchor="middle">GPS</text>
+        <text x="280" y="270" font-family="Helvetica Neue" font-size="8" fill="#3a404a" text-anchor="middle">$$</text>
+        
+        <!-- Оптичне -->
+        <circle cx="450" cy="120" r="8" fill="#c0392b" />
+        <text x="450" y="110" font-family="Helvetica Neue" font-size="9" fill="#c0392b" text-anchor="450">Оптичне</text>
+        <text x="450" y="270" font-family="Helvetica Neue" font-size="8" fill="#3a404a" text-anchor="middle">$$$$</text>
+        
+        <!-- UWB/RFID -->
+        <circle cx="580" cy="80" r="8" fill="#2e7d32" />
+        <text x="580" y="70" font-family="Helvetica Neue" font-size="9" fill="#2e7d32" text-anchor="middle">UWB/RFID</text>
+        <text x="580" y="270" font-family="Helvetica Neue" font-size="8" fill="#3a404a" text-anchor="middle">$$$</text>
+        
+        <!-- Зони -->
+        <rect x="100" y="200" width="200" height="50" fill="#e67e22" opacity="0.05" stroke="#e67e22" stroke-width="0.8" stroke-dasharray="3,3" />
+        <text x="200" y="240" font-family="Helvetica Neue" font-size="8" fill="#e67e22" text-anchor="middle">аматори</text>
+        
+        <rect x="240" y="150" width="180" height="100" fill="#3498db" opacity="0.05" stroke="#3498db" stroke-width="0.8" stroke-dasharray="3,3" />
+        <text x="330" y="190" font-family="Helvetica Neue" font-size="8" fill="#3498db" text-anchor="middle">напівпрофесіонали</text>
+        
+        <rect x="400" y="60" width="250" height="190" fill="#c0392b" opacity="0.05" stroke="#c0392b" stroke-width="0.8" stroke-dasharray="3,3" />
+        <text x="525" y="100" font-family="Helvetica Neue" font-size="8" fill="#c0392b" text-anchor="middle">професійні ліги</text>
+      </svg>
+      <div class="scheme-caption">Вибір методу залежить від бюджету та вимог до точності — професійні ліги використовують оптичне відстеження або UWB.</div>
+    </div>
+    
+    <!-- Як дані стають аналітикою -->
+    <h2>Від сирих даних до тактичних інсайтів</h2>
+    
+    <div class="data-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Етап обробки</th>
+            <th>Вхідні дані</th>
+            <th>Вихідні дані</th>
+            <th>Використовувані алгоритми</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Збір</td>
+            <td>Відеопотік / сигнали GPS</td>
+            <td>Сирі координати (x, y, t)</td>
+            <td>Комп'ютерний зір, тріангуляція</td>
+          </tr>
+          <tr>
+            <td>Очищення</td>
+            <td>Сирі координати</td>
+            <td>Згладжені траєкторії</td>
+            <td>Фільтр Калмана, Савицького-Голея</td>
+          </tr>
+          <tr>
+            <td>Ідентифікація</td>
+            <td>Траєкторії</td>
+            <td>Гравці з ID, команди, м'яч</td>
+            <td>Класифікація, трекінг об'єктів</td>
+          </tr>
+          <tr>
+            <td>Подієва розмітка</td>
+            <td>Траєкторії + ID</td>
+            <td>Паси, удари, відбори</td>
+            <td>Rule-based + ML моделі</td>
+          </tr>
+          <tr>
+            <td>Просторовий аналіз</td>
+            <td>Події + траєкторії</td>
+            <td>Діаграми Вороного, контроль поля</td>
+            <td>Обчислювальна геометрія</td>
+          </tr>
+          <tr>
+            <td>Метрики</td>
+            <td>Просторові моделі</td>
+            <td>xG, xT, PPDA, PV</td>
+            <td>Логістична регресія, градієнтний бустинг</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- Майбутнє -->
+    <div class="insight-box">
+      <h3>Майбутнє технологій просторового аналізу</h3>
+      <p>Розвиток технологій рухається в кількох напрямках:</p>
+      <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+        <li><strong>Автоматичне розпізнавання тактичних схем:</strong> Алгоритми, які в реальному часі ідентифікують формації (4-4-2, 4-3-3) та їх зміни.</li>
+        <li><strong>Прогнозування ймовірності подій:</strong> Моделі, що оцінюють шанси на гол/кидок з поточної позиції ще до моменту удару.</li>
+        <li><strong>Інтеграція з доповненою реальністю (AR):</strong> Тренери бачать просторові дані поверх живого відео на планшеті.</li>
+        <li><strong>Генеративний AI для симуляцій:</strong> Створення тисяч альтернативних сценаріїв розвитку атаки для тренування прийняття рішень.</li>
+        <li><strong>Демократизація даних:</strong> Поява дешевших камер з AI-обробкою робить просторовий аналіз доступним для аматорських команд.</li>
+      </ul>
+    </div>
+    
+    <!-- Порада для дослідників -->
+    <div class="insight-box" style="border-left-color: var(--grass);">
+      <h3 style="color: var(--grass-dark);">Для дослідників та студентів</h3>
+      <p>Якщо ви хочете розпочати власне дослідження просторового аналізу, рекомендується:</p>
+      <ol style="margin-top: 0.5rem; margin-left: 1.5rem;">
+        <li>Розпочати з відкритих даних Metrica Sports або StatsBomb — вони безкоштовні та добре документовані.</li>
+        <li>Використовувати Python з бібліотеками: pandas (обробка даних), scipy (просторові обчислення), matplotlib (візуалізація), scikit-learn (машинне навчання).</li>
+        <li>Ознайомитися з пакетом <code>kloppy</code> — він стандартизує завантаження даних з різних провайдерів.</li>
+        <li>Приєднатися до спільнот: Friends of Tracking (YouTube-канал з лекціями), PySport (спільнота Python-розробників у спорті).</li>
+      </ol>
+    </div>
+    
+    <!-- Номер сторінки -->
+    <div class="page-number">— 15 —</div>
+  </article>
+</body>
+</html>

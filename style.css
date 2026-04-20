@@ -1,0 +1,366 @@
+/* === ПРОСТОРОВИЙ КОНТРОЛЬ · ЖУРНАЛ ТАКТИЧНОГО АНАЛІЗУ === */
+/* Стиль: академічний журнал з футбольною тематикою */
+
+:root {
+  --sky: #d6eaf8;
+  --sky-light: #e8f2fa;
+  --sky-deep: #a9cce3;
+  --grass: #2e7d32;
+  --grass-dark: #1b5e20;
+  --ink: #1a1e24;
+  --ink-light: #3a404a;
+  --rule: #c8d8e4;
+  --accent: #c0392b;
+  --paper: #fefefd;
+  --ball-white: #f5f5f0;
+  --ball-black: #2c2c28;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--sky);
+  background-image: 
+    /* Шестикутники — тактична сітка поля */
+    repeating-linear-gradient(
+      60deg,
+      transparent,
+      transparent 35px,
+      rgba(46, 125, 50, 0.06) 35px,
+      rgba(46, 125, 50, 0.06) 38px
+    ),
+    repeating-linear-gradient(
+      -60deg,
+      transparent,
+      transparent 35px,
+      rgba(46, 125, 50, 0.06) 35px,
+      rgba(46, 125, 50, 0.06) 38px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 35px,
+      rgba(46, 125, 50, 0.06) 35px,
+      rgba(46, 125, 50, 0.06) 38px
+    ),
+    /* Футбольні м'ячі — великі, напівпрозорі, у фоновому шарі */
+    radial-gradient(circle at 5% 15%, rgba(255, 255, 255, 0.3) 0px, transparent 80px),
+    radial-gradient(circle at 95% 8%, rgba(255, 255, 255, 0.25) 0px, transparent 90px),
+    radial-gradient(circle at 2% 85%, rgba(255, 255, 255, 0.2) 0px, transparent 100px),
+    radial-gradient(circle at 88% 92%, rgba(255, 255, 255, 0.28) 0px, transparent 75px),
+    radial-gradient(circle at 15% 55%, rgba(255, 255, 255, 0.18) 0px, transparent 60px),
+    radial-gradient(circle at 72% 35%, rgba(255, 255, 255, 0.22) 0px, transparent 85px),
+    radial-gradient(circle at 40% 90%, rgba(255, 255, 255, 0.15) 0px, transparent 70px),
+    radial-gradient(circle at 60% 70%, rgba(255, 255, 255, 0.2) 0px, transparent 65px);
+  background-attachment: fixed;
+  background-size: 
+    60px 104px,
+    60px 104px,
+    60px 104px,
+    auto, auto, auto, auto, auto, auto, auto, auto;
+  background-position: 0 0, 30px 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+  font-family: 'Palatino', 'Palatino Linotype', 'Georgia', 'Times New Roman', serif;
+  line-height: 1.6;
+  color: var(--ink);
+  min-height: 100vh;
+  padding: 2rem 0 4rem 0;
+}
+
+/* Основний контейнер — широкий, як журнальна сторінка */
+article,
+.paper {
+  max-width: 1100px;
+  width: 90%;
+  margin: 0 auto;
+  background: var(--paper);
+  padding: 3.5rem 4rem;
+  border-radius: 4px;
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.03),
+    0 8px 16px rgba(0, 0, 0, 0.05),
+    0 20px 40px rgba(0, 0, 0, 0.06);
+  border-left: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+  border-bottom: 2px solid var(--grass);
+  position: relative;
+  z-index: 10;
+}
+
+/* Декоративна лінія поля зверху */
+article::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--grass) 15%,
+    var(--grass) 85%,
+    transparent
+  );
+}
+
+/* Заголовки — журнальний стиль */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem 0;
+  padding-bottom: 1.2rem;
+  border-bottom: 2px solid var(--grass);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  word-spacing: 0.1em;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 2.5rem 0 1rem 0;
+  padding-left: 1rem;
+  border-left: 4px solid var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 1.8rem 0 0.8rem 0;
+  font-style: italic;
+  color: var(--grass-dark);
+}
+
+/* Абзаци — класичний друкований вигляд */
+p {
+  margin-bottom: 1.2rem;
+  text-align: justify;
+  hyphens: auto;
+  font-size: 1rem;
+}
+
+p:first-of-type::first-letter {
+  font-size: 3.2em;
+  float: left;
+  line-height: 0.8;
+  margin-right: 0.15em;
+  margin-top: 0.05em;
+  font-weight: 600;
+  color: var(--grass-dark);
+  font-family: 'Times New Roman', serif;
+}
+
+/* Таблиці — строгі, з зеленими акцентами */
+table {
+  width: 100%;
+  margin: 2rem 0;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+}
+
+th {
+  background: var(--grass);
+  color: white;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+  padding: 0.8rem 1rem;
+  text-align: left;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+  vertical-align: top;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:nth-child(even) td {
+  background: rgba(214, 234, 248, 0.15);
+}
+
+/* Списки */
+ul, ol {
+  margin: 1rem 0 1.5rem 2rem;
+}
+
+li {
+  margin-bottom: 0.4rem;
+}
+
+/* Виділення тексту */
+strong, b {
+  font-weight: 600;
+  color: var(--grass-dark);
+}
+
+em, i {
+  font-style: italic;
+  color: var(--ink-light);
+}
+
+/* Цитати та блоки */
+blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 2rem;
+  background: var(--sky-light);
+  border-left: 4px solid var(--accent);
+  font-style: italic;
+  color: var(--ink-light);
+  border-radius: 0 8px 8px 0;
+}
+
+/* Посилання — стримані */
+a {
+  color: var(--grass-dark);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--grass);
+  transition: border-color 0.15s;
+}
+
+a:hover {
+  border-bottom-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Розділювачі */
+hr {
+  margin: 2.5rem 0;
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--rule) 20%,
+    var(--grass) 50%,
+    var(--rule) 80%,
+    transparent
+  );
+}
+
+/* Виноски та примітки */
+.footnote, .reference {
+  font-size: 0.85rem;
+  color: var(--ink-light);
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+}
+
+/* Нумерація сторінок — журнальна */
+.page-number {
+  text-align: center;
+  margin-top: 3rem;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 0.8rem;
+  color: var(--ink-light);
+  letter-spacing: 0.1em;
+}
+
+/* Клас для ілюстрацій */
+.figure {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.figure img {
+  max-width: 100%;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+}
+
+.figure figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--ink-light);
+  font-style: italic;
+}
+
+/* Адаптивність */
+@media (max-width: 900px) {
+  body {
+    padding: 1rem 0 2rem 0;
+  }
+  
+  article,
+  .paper {
+    width: 95%;
+    padding: 2rem 1.5rem;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  h2 {
+    font-size: 1.3rem;
+  }
+  
+  p:first-of-type::first-letter {
+    font-size: 2.5em;
+  }
+}
+
+@media (max-width: 600px) {
+  table {
+    font-size: 0.8rem;
+  }
+  
+  th, td {
+    padding: 0.5rem 0.6rem;
+  }
+  
+  article,
+  .paper {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* Для друку — чистий вигляд */
+@media print {
+  body {
+    background: white;
+    padding: 0;
+  }
+  
+  article,
+  .paper {
+    box-shadow: none;
+    border: none;
+    max-width: 100%;
+    padding: 0.5in;
+  }
+  
+  article::before {
+    display: none;
+  }
+  
+  a {
+    color: black;
+    border-bottom: none;
+  }
+}

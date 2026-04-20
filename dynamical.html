@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Просторовий контроль · Динамічний контроль поля</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .nav-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .nav-button {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      color: var(--ink-light);
+      padding: 0.5rem 1.2rem;
+      border: 1px solid var(--rule);
+      border-radius: 30px;
+      transition: all 0.2s ease;
+      background: transparent;
+    }
+    
+    .nav-button:hover {
+      border-color: var(--grass);
+      color: var(--grass-dark);
+      background: rgba(46, 125, 50, 0.03);
+    }
+    
+    .scheme-container {
+      margin: 2.5rem 0;
+      padding: 1.5rem;
+      background: var(--sky-light);
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+    }
+    
+    .scheme-title {
+      font-family: 'Helvetica Neue', 'Arial', sans-serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink-light);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    
+    .scheme-canvas {
+      display: block;
+      width: 100%;
+      max-width: 750px;
+      margin: 0 auto;
+    }
+    
+    .scheme-caption {
+      font-size: 0.85rem;
+      color: var(--ink-light);
+      margin-top: 1rem;
+      text-align: center;
+      font-style: italic;
+    }
+    
+    .comparison-table {
+      margin: 2rem 0;
+    }
+    
+    .formula-box {
+      background: var(--paper);
+      padding: 1.5rem 2rem;
+      margin: 2rem 0;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--grass);
+      text-align: center;
+    }
+    
+    .formula {
+      font-family: 'Courier New', monospace;
+      font-size: 1.2rem;
+      color: var(--grass-dark);
+      margin: 1rem 0;
+    }
+    
+    .principle-card {
+      background: var(--sky-light);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+      border-left: 4px solid var(--accent);
+    }
+    
+    .principle-card h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-style: normal;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <article>
+    <!-- Навігація -->
+    <div class="nav-top">
+      <a href="restrictions.html" class="nav-button">← Обмеження моделей</a>
+      <div class="nav-links">
+        <a href="visualisation.html" class="nav-button">Системи візуалізації →</a>
+      </div>
+    </div>
+    
+    <!-- Заголовок -->
+    <h1>Перехід до концепції динамічного контролю поля</h1>
+    
+    <!-- Основний текст -->
+    <p>Усвідомлення обмежень статичних методів стимулювало створення нових інструментів просторового аналізу. На зміну класичним моделям прийшла концепція динамічного контролю поля. Ці новітні підходи базуються на фізичних принципах руху об'єктів. Вони створюються для точного аналізу обсягу простору, який реально контролює команда в кожен момент часу. Найпростіша базова модель використовує принципи Вороного для призначення гравцям частини поля на кожному кадрі відеозапису. Однак сучасні передові системи йдуть значно далі у своїх розрахунках. Включення швидкості гравців стало одним із найголовніших завдань для розробників.</p>
+    
+    <!-- Схема 1: Еволюція моделей -->
+    <div class="scheme-container">
+      <div class="scheme-title">Рис. 1 — Еволюція від статичної до динамічної моделі контролю поля</div>
+      <svg class="scheme-canvas" viewBox="0 0 750 260" preserveAspectRatio="xMidYMid meet">
+        <!-- Статична модель -->
+        <rect x="15" y="20" width="220" height="220" rx="6" fill="#fefefd" stroke="#3a404a" stroke-width="1.5" />
+        <text x="125" y="45" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#3a404a" text-anchor="middle" font-weight="600">СТАТИЧНА</text>
+        
+        <circle cx="80" cy="100" r="8" fill="#c0392b" />
+        <circle cx="160" cy="100" r="8" fill="#2e7d32" />
+        <line x1="120" y1="80" x2="120" y2="120" stroke="#3a404a" stroke-width="1.5" stroke-dasharray="6,3" />
+        
+        <text x="125" y="160" fill="#3a404a" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" text-anchor="middle">Лише відстань</text>
+        <text x="125" y="178" fill="#c0392b" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" text-anchor="middle">Швидкість = 0</text>
+        <text x="125" y="196" fill="#c0392b" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" text-anchor="middle">М'яч = 0</text>
+        
+        <text x="245" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="22" fill="#c0392b">→</text>
+        
+        <!-- Проміжна модель -->
+        <rect x="265" y="20" width="220" height="220" rx="6" fill="#fefefd" stroke="#e67e22" stroke-width="1.5" />
+        <text x="375" y="45" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#e67e22" text-anchor="middle" font-weight="600">ЗІ ШВИДКІСТЮ</text>
+        
+        <circle cx="330" cy="100" r="8" fill="#c0392b" />
+        <line x1="330" y1="100" x2="360" y2="85" stroke="#c0392b" stroke-width="2" marker-end="url(#arrowOrange)" />
+        <circle cx="410" cy="100" r="8" fill="#2e7d32" />
+        
+        <ellipse cx="360" cy="95" rx="45" ry="20" fill="#c0392b" opacity="0.1" stroke="#e67e22" stroke-width="1.2" stroke-dasharray="4,3" transform="rotate(-15, 360, 95)" />
+        
+        <text x="375" y="160" fill="#3a404a" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" text-anchor="middle">Відстань + швидкість</text>
+        <text x="375" y="178" fill="#e67e22" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" text-anchor="middle">Вектор руху</text>
+        
+        <text x="495" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="22" fill="#e67e22">→</text>
+        
+        <!-- Динамічна модель -->
+        <rect x="515" y="20" width="220" height="220" rx="6" fill="#fefefd" stroke="#2e7d32" stroke-width="2" />
+        <text x="625" y="45" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#2e7d32" text-anchor="middle" font-weight="600">ДИНАМІЧНА</text>
+        
+        <circle cx="570" cy="100" r="8" fill="#c0392b" />
+        <line x1="570" y1="100" x2="600" y2="80" stroke="#c0392b" stroke-width="2" marker-end="url(#arrowGreen)" />
+        <circle cx="660" cy="100" r="8" fill="#2e7d32" />
+        
+        <!-- М'яч -->
+        <circle cx="610" cy="80" r="5" fill="#f5f5f0" stroke="#3a404a" stroke-width="1" />
+        
+        <ellipse cx="600" cy="90" rx="55" ry="25" fill="#c0392b" opacity="0.12" stroke="#2e7d32" stroke-width="1.5" stroke-dasharray="5,3" transform="rotate(-10, 600, 90)" />
+        
+        <text x="625" y="160" fill="#3a404a" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" text-anchor="625">Відстань + швидкість</text>
+        <text x="625" y="178" fill="#2e7d32" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" text-anchor="middle">+ орієнтація + м'яч</text>
+        <text x="625" y="196" fill="#2e7d32" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" text-anchor="middle">+ прискорення</text>
+        
+        <defs>
+          <marker id="arrowOrange" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#e67e22" />
+          </marker>
+          <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#2e7d32" />
+          </marker>
+        </defs>
+      </svg>
+      <div class="scheme-caption">Поступове ускладнення моделей: від простого поділу за відстанню до комплексного врахування фізичних параметрів.</div>
+    </div>
+    
+    <p>Інноваційність концепції динамічного контролю поля полягає у заміні критерію відстані на критерій часу. Модель розраховує час, який знадобиться кожному спортсмену для досягнення м'яча у будь-якій точці майданчика. Цей підхід був розроблений провідними фахівцями з аналізу даних. Він враховує максимальну швидкість гравця, його прискорення та балістичні властивості польоту м'яча.</p>
+    
+    <!-- Формула -->
+    <div class="formula-box">
+      <p style="margin-bottom: 0.5rem; font-weight: 600;">Ключова концепція:</p>
+      <div class="formula">Контроль = f(час прибуття до точки)</div>
+      <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--ink-light);">Замість географічної відстані — розрахунковий час досягнення</p>
+    </div>
+    
+    <p>Якщо атакуючий гравець уже рухається на високій швидкості, його зона контролю автоматично видовжується в напрямку бігу. Одночасно зона контролю статичного захисника суттєво зменшується. Це дозволяє генерувати надзвичайно реалістичний малюнок боротьби за територію, який відображає фізичні можливості спортсменів.</p>
+    
+    <!-- Порівняльна таблиця -->
+    <div class="comparison-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Параметр порівняння</th>
+            <th>Статична діаграма Вороного</th>
+            <th>Динамічна модель контролю поля</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Основний критерій розрахунку зони</td>
+            <td>Географічна дистанція до точки</td>
+            <td>Розрахунковий час прибуття до точки</td>
+          </tr>
+          <tr>
+            <td>Врахування поточної швидкості</td>
+            <td>Швидкість руху повністю ігнорується</td>
+            <td>Є фундаментальним компонентом алгоритму</td>
+          </tr>
+          <tr>
+            <td>Позиція та траєкторія м'яча</td>
+            <td>Не береться до уваги при розрахунках</td>
+            <td>Визначає вірогідність проходження пасу</td>
+          </tr>
+          <tr>
+            <td>Орієнтація корпусу гравця</td>
+            <td>Не враховується під час побудови</td>
+            <td>Впливає на розрахунок часу розвороту</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- Схема 2: Вплив швидкості на зону контролю -->
+    <div class="scheme-container">
+      <div class="scheme-title">Рис. 2 — Вплив швидкості руху на форму зони контролю</div>
+      <svg class="scheme-canvas" viewBox="0 0 700 250" preserveAspectRatio="xMidYMid meet">
+        <!-- Статичний гравець -->
+        <rect x="15" y="20" width="320" height="210" rx="6" fill="#fefefd" stroke="#3a404a" stroke-width="1" />
+        <text x="175" y="45" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#3a404a" text-anchor="middle" font-weight="600">Статичний захисник (v = 0)</text>
+        
+        <circle cx="120" cy="120" r="10" fill="#2e7d32" />
+        <text x="120" y="115" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">D</text>
+        
+        <!-- Мала зона -->
+        <circle cx="120" cy="120" r="35" fill="#2e7d32" opacity="0.08" stroke="#2e7d32" stroke-width="1.2" stroke-dasharray="4,3" />
+        
+        <text x="175" y="200" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#2e7d32" text-anchor="middle" font-style="italic">Зона контролю мала, симетрична</text>
+        
+        <!-- Динамічний гравець -->
+        <rect x="365" y="20" width="320" height="210" rx="6" fill="#fefefd" stroke="#c0392b" stroke-width="1" />
+        <text x="525" y="45" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" fill="#c0392b" text-anchor="middle" font-weight="600">Нападник у русі (v > 0)</text>
+        
+        <circle cx="460" cy="120" r="10" fill="#c0392b" />
+        <text x="460" y="115" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">A</text>
+        
+        <!-- Вектор швидкості -->
+        <line x1="460" y1="120" x2="520" y2="90" stroke="#c0392b" stroke-width="2.5" marker-end="url(#arrowRed3)" />
+        
+        <!-- Велика витягнута зона -->
+        <ellipse cx="510" cy="95" rx="65" ry="25" fill="#c0392b" opacity="0.12" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5,3" transform="rotate(-15, 510, 95)" />
+        
+        <text x="525" y="200" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" fill="#c0392b" text-anchor="middle" font-style="italic">Зона витягнута в напрямку руху</text>
+        
+        <defs>
+          <marker id="arrowRed3" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#c0392b" />
+          </marker>
+        </defs>
+      </svg>
+      <div class="scheme-caption">Швидкість руху кардинально змінює форму та розмір зони контролю гравця.</div>
+    </div>
+    
+    <!-- Додатковий текст -->
+    <div class="principle-card">
+      <h3>Відкритість та адаптивність алгоритмів</h3>
+      <p>Дослідники приділяють багато уваги перевірці точності цих нових просторових метрик. Оскільки багато кодів та алгоритмів у сфері аналітики є закритою комерційною власністю, науковці розробляють власні відкриті функції для визначення контролю поля. Ці програмні коди забезпечують реалістичність з точки зору фізичного руху об'єктів. Їх можна легко адаптувати до різних видів спорту шляхом зміни інтуїтивно зрозумілих параметрів. Використання таких просторово-часових інструментів піднімає розуміння тактики на новий рівень.</p>
+    </div>
+    
+    <!-- Номер сторінки -->
+    <div class="page-number">— 8 —</div>
+  </article>
+</body>
+</html>
